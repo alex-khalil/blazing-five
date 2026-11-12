@@ -10,6 +10,12 @@ const PRIMARY_DATA_FILE = path.join(DATA_DIR, 'blazing5-league.json');
 const FALLBACK_DATA_FILE = path.join('/tmp', 'blazing5-league.json');
 const TEMPLATES_DIR = path.join(ROOT_DIR, 'templates');
 
+function normalizeTeamAbbr(abbr?: string): string {
+  const up = String(abbr || '').trim().toUpperCase();
+  if (up === 'WSH') return 'WAS';
+  return up;
+}
+
 interface TeamInfo {
   name: string;
   abbreviation?: string;
@@ -53,13 +59,24 @@ class LeagueStore {
   }
 
   loadOrInitState(): Record<string, any> {
-    // Check fallback /tmp file first if it was written more recently in a read-only container
     const candidates = [this.dataFile, FALLBACK_DATA_FILE];
     for (const candidate of candidates) {
       try {
         if (fs.existsSync(candidate)) {
           const raw = fs.readFileSync(candidate, 'utf-8');
           const data = JSON.parse(raw);
+          if (Array.isArray(data.games)) {
+            const seenEspnIds = new Set<string>();
+            data.games = data.games.filter((g: any) => {
+              if (String(g.id || '').startsWith('gm_w')) return false;
+              if (g.espnId) {
+                const eid = String(g.espnId);
+                if (seenEspnIds.has(eid)) return false;
+                seenEspnIds.add(eid);
+              }
+              return true;
+            });
+          }
           this._calculatePicksResults(data);
           return data;
         }
@@ -84,7 +101,6 @@ class LeagueStore {
       fs.renameSync(tempFile, this.dataFile);
       return;
     } catch (err) {
-      // Fallback to /tmp in read-only container environments
       try {
         const tempFallback = `${FALLBACK_DATA_FILE}.tmp`;
         fs.writeFileSync(tempFallback, payload, 'utf-8');
@@ -128,7 +144,6 @@ class LeagueStore {
       return baseTue;
     }
 
-    // Convert earliest kickoff to Eastern Time components
     const etParts = new Intl.DateTimeFormat('en-US', {
       timeZone: 'America/New_York',
       year: 'numeric',
@@ -159,7 +174,6 @@ class LeagueStore {
     const month = Number(partMap.month);
     const day = Number(partMap.day);
 
-    // Midnight ET on that Tuesday (04:00 UTC during EDT)
     const tuesdayUtc = new Date(Date.UTC(year, month - 1, day - daysToTuesday, 4, 0, 0));
     return tuesdayUtc;
   }
@@ -227,9 +241,9 @@ class LeagueStore {
     };
   }
 
-  async fetchEspnScoreboard(week?: number | null): Promise<any[]> {
-    const wParam = week ? `&week=${week}` : '';
-    const url = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?seasontype=2${wParam}`;
+  async fetchEspnScoreboard(week?: number | null): Promise<{ events: any[]; currentWeek?: number; seasonYear?: number }> {
+    const wParam = week ? `?seasontype=2&week=${week}` : '';
+    const url = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard${wParam}`;
     try {
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 8000);
@@ -241,18 +255,30 @@ class LeagueStore {
         signal: controller.signal,
       });
       clearTimeout(timeout);
-      if (!res.ok) return [];
+      if (!res.ok) return { events: [] };
       const payload: any = await res.json();
-      return payload.events || [];
+      return {
+        events: payload.events || [],
+        currentWeek: payload.week?.number,
+        seasonYear: payload.season?.year,
+      };
     } catch (err) {
       console.error('Error querying ESPN scoreboard:', err);
-      return [];
+      return { events: [] };
     }
   }
 
   async syncLiveNflData(targetWeek?: number | null): Promise<Record<string, any>> {
-    const week = targetWeek || this.state.currentWeek || 4;
-    const events = await this.fetchEspnScoreboard(week);
+    // If no targetWeek specified, check ESPN default scoreboard to detect current NFL week
+    if (!targetWeek && !this.state.isManualWeekOverride) {
+      const defaultBoard = await this.fetchEspnScoreboard(null);
+      if (defaultBoard.currentWeek && defaultBoard.currentWeek >= 1 && defaultBoard.currentWeek <= 18) {
+        this.state.currentWeek = defaultBoard.currentWeek;
+      }
+    }
+
+    const week = targetWeek || this.state.currentWeek || 10;
+    const { events } = await this.fetchEspnScoreboard(week);
     if (!events || events.length === 0) {
       this.liveSyncStatus = 'ESPN connection unavailable (cached lines active)';
       return {
@@ -261,6 +287,11 @@ class LeagueStore {
         updatedCount: 0,
       };
     }
+
+    // Purge any legacy synthetic games (gm_w*) for this week
+    this.state.games = (this.state.games || []).filter(
+      (g: any) => !(g.week === week && String(g.id).startsWith('gm_w'))
+    );
 
     let updatedCount = 0;
     const games: any[] = this.state.games || [];
@@ -275,6 +306,8 @@ class LeagueStore {
       const awayAbbr = away.team?.abbreviation;
       const homeName = home.team?.displayName || '';
       const awayName = away.team?.displayName || '';
+      const homeRec = home.records?.[0]?.summary || '';
+      const awayRec = away.records?.[0]?.summary || '';
 
       const statusObj = comp.status?.type || {};
       const espnState = statusObj.state;
@@ -323,16 +356,16 @@ class LeagueStore {
         }
       }
 
-      let matchedGame = games.find((g) => {
+      // Match strictly by espnId or BOTH home and away abbreviations matching
+      const matchedGame = games.find((g) => {
         if (g.week !== week) return false;
-        const gHomeAbbr = g.homeTeam?.abbreviation;
-        const gAwayAbbr = g.awayTeam?.abbreviation;
-        const gHomeName = g.homeTeam?.name || '';
-        const gAwayName = g.awayTeam?.name || '';
+        if (g.espnId && String(g.espnId) === String(ev.id)) return true;
+        const gHomeAbbr = normalizeTeamAbbr(g.homeTeam?.abbreviation);
+        const gAwayAbbr = normalizeTeamAbbr(g.awayTeam?.abbreviation);
         return (
-          (gHomeAbbr === homeAbbr && gAwayAbbr === awayAbbr) ||
-          (homeName && gHomeName.includes(homeName)) ||
-          (awayName && gAwayName.includes(awayName))
+          gHomeAbbr !== '' &&
+          gHomeAbbr === normalizeTeamAbbr(homeAbbr) &&
+          gAwayAbbr === normalizeTeamAbbr(awayAbbr)
         );
       });
 
@@ -350,32 +383,34 @@ class LeagueStore {
         matchedGame.homeScore = homeScore;
         matchedGame.awayScore = awayScore;
         if (kickoffIso) matchedGame.kickoffTime = kickoffIso;
+        if (homeRec) matchedGame.homeTeam.record = homeRec;
+        if (awayRec) matchedGame.awayTeam.record = awayRec;
         matchedGame.liveClockDetail = detailClock;
-        matchedGame.espnId = ev.id;
+        matchedGame.espnId = String(ev.id);
         matchedGame.lastLiveSync = new Date().toISOString();
         updatedCount += 1;
       } else {
         const newGameId = `gm_espn_w${week}_${ev.id}`;
         games.push({
           id: newGameId,
-          espnId: ev.id,
+          espnId: String(ev.id),
           week,
           season: this.state.seasonYear || 2026,
           homeTeam: {
             name: homeName || homeAbbr,
             abbreviation: homeAbbr,
             logo: home.team?.logo || '',
-            record: home.records?.[0]?.summary || '',
+            record: homeRec,
           },
           awayTeam: {
             name: awayName || awayAbbr,
             abbreviation: awayAbbr,
             logo: away.team?.logo || '',
-            record: away.records?.[0]?.summary || '',
+            record: awayRec,
           },
-          homeSpread: espnHomeSpread !== null ? espnHomeSpread : -3.0,
-          awaySpread: espnHomeSpread !== null ? -espnHomeSpread : 3.0,
-          overUnder: espnOu || 45.0,
+          homeSpread: espnHomeSpread !== null ? espnHomeSpread : -2.5,
+          awaySpread: espnHomeSpread !== null ? -espnHomeSpread : 2.5,
+          overUnder: espnOu || 45.5,
           kickoffTime: kickoffIso || new Date().toISOString(),
           status,
           homeScore,
@@ -385,6 +420,21 @@ class LeagueStore {
           lastLiveSync: new Date().toISOString(),
         });
         updatedCount += 1;
+      }
+    }
+
+    // Ensure current week has a valid featuredGameId pointing to an actual game in this week
+    const weekGames = games.filter((g) => g.week === week);
+    if (!this.state.weeklyConfigs) this.state.weeklyConfigs = {};
+    const wCfg = this.state.weeklyConfigs[String(week)] || {};
+    if (weekGames.length > 0) {
+      const hasValidFeatured = weekGames.some((g) => g.id === wCfg.featuredGameId);
+      if (!hasValidFeatured) {
+        const chosen = weekGames[Math.min(11, weekGames.length - 1)];
+        chosen.isFeatured = true;
+        wCfg.featuredGameId = chosen.id;
+        wCfg.week = week;
+        this.state.weeklyConfigs[String(week)] = wCfg;
       }
     }
 
@@ -629,9 +679,14 @@ class LeagueStore {
       const uPicks = seasonPicks.filter((p) => p.userId === uid);
       const decorated = uPicks.map((p) => {
         const team = teamsMap.get(p.teamId) || {};
-        const wins = team.currentWins ?? 0;
-        const losses = team.currentLosses ?? 0;
-        const line = p.line ?? team.winTotalLine ?? 0;
+        const wins = Number(team.currentWins ?? 0);
+        const losses = Number(team.currentLosses ?? 0);
+        const ties = Number(team.currentTies ?? 0);
+        const gamesRemaining = Number(
+          team.gamesRemaining ?? Math.max(0, 17 - (wins + losses + ties))
+        );
+        const maxPossibleWins = wins + gamesRemaining;
+        const line = Number(p.line ?? team.winTotalLine ?? 0);
         const isOver = p.selection === 'OVER';
 
         return {
@@ -644,9 +699,13 @@ class LeagueStore {
           isLock: Boolean(p.isLock),
           currentWins: wins,
           currentLosses: losses,
+          currentTies: ties,
+          gamesRemaining,
+          maxPossibleWins,
           result: p.result || 'pending',
           pointsAwarded: p.pointsAwarded ?? 0,
-          targetWinsNeeded: isOver ? Math.max(0, Math.floor(line + 0.5) - wins) : null,
+          statusDetail: p.statusDetail || '',
+          targetWinsNeeded: isOver ? Math.max(0, Math.floor(line) + 1 - wins) : null,
         };
       });
 
@@ -660,6 +719,7 @@ class LeagueStore {
         wins: decorated.filter((p) => p.result === 'win').length,
         losses: decorated.filter((p) => p.result === 'loss').length,
         pending: decorated.filter((p) => p.result === 'pending').length,
+        points: decorated.reduce((acc, p) => acc + (p.pointsAwarded || 0), 0),
       };
     });
 
@@ -922,6 +982,7 @@ class LeagueStore {
       });
     }
 
+    this._calculatePicksResults(this.state);
     this.saveState();
     return {
       success: true,
@@ -1080,6 +1141,7 @@ class LeagueStore {
 
   setCurrentWeek(week: number): void {
     this.state.currentWeek = week;
+    this.state.isManualWeekOverride = true;
     this.saveState();
   }
 
@@ -1223,9 +1285,73 @@ class LeagueStore {
   }
 
   _calculatePicksResults(state: Record<string, any>): void {
+    const games: any[] = state.games || [];
     const gamesMap = new Map<string, any>();
-    for (const g of state.games || []) gamesMap.set(g.id, g);
+    for (const g of games) gamesMap.set(g.id, g);
 
+    // 1. Dynamically compute each NFL team's win/loss/tie record & remaining regular season games from finalized games
+    const teamStatsMap = new Map<string, { w: number; l: number; t: number; played: number; totalScheduled: number }>();
+    for (const g of games) {
+      const hAbbr = normalizeTeamAbbr(g.homeTeam?.abbreviation);
+      const aAbbr = normalizeTeamAbbr(g.awayTeam?.abbreviation);
+      if (hAbbr) {
+        if (!teamStatsMap.has(hAbbr)) teamStatsMap.set(hAbbr, { w: 0, l: 0, t: 0, played: 0, totalScheduled: 0 });
+        teamStatsMap.get(hAbbr)!.totalScheduled += 1;
+      }
+      if (aAbbr) {
+        if (!teamStatsMap.has(aAbbr)) teamStatsMap.set(aAbbr, { w: 0, l: 0, t: 0, played: 0, totalScheduled: 0 });
+        teamStatsMap.get(aAbbr)!.totalScheduled += 1;
+      }
+
+      if (
+        g.status === 'final' &&
+        g.homeScore !== null &&
+        g.homeScore !== undefined &&
+        g.awayScore !== null &&
+        g.awayScore !== undefined
+      ) {
+        const hs = Number(g.homeScore);
+        const as = Number(g.awayScore);
+        if (hAbbr && aAbbr) {
+          const hStat = teamStatsMap.get(hAbbr)!;
+          const aStat = teamStatsMap.get(aAbbr)!;
+          hStat.played += 1;
+          aStat.played += 1;
+          if (hs > as) {
+            hStat.w += 1;
+            aStat.l += 1;
+          } else if (as > hs) {
+            aStat.w += 1;
+            hStat.l += 1;
+          } else {
+            hStat.t += 1;
+            aStat.t += 1;
+          }
+        }
+      }
+    }
+
+    for (const st of state.seasonTeams || []) {
+      const abbr = normalizeTeamAbbr(st.abbrev || st.teamId);
+      const computed = teamStatsMap.get(abbr);
+      if (computed && computed.played > 0) {
+        st.currentWins = computed.w;
+        st.currentLosses = computed.l;
+        st.currentTies = computed.t;
+        st.gamesPlayed = computed.played;
+        st.gamesRemaining = Math.max(0, 17 - computed.played);
+        st.maxPossibleWins = computed.w + st.gamesRemaining;
+      } else {
+        const w = Number(st.currentWins ?? 0);
+        const l = Number(st.currentLosses ?? 0);
+        const t = Number(st.currentTies ?? 0);
+        st.gamesPlayed = w + l + t;
+        st.gamesRemaining = Math.max(0, 17 - st.gamesPlayed);
+        st.maxPossibleWins = w + st.gamesRemaining;
+      }
+    }
+
+    // 2. Weekly ATS picks calculation
     for (const pick of state.picks || []) {
       const game = gamesMap.get(pick.gameId);
       if (
@@ -1263,6 +1389,7 @@ class LeagueStore {
       }
     }
 
+    // 3. Season O/U picks calculation with mathematical clinch / elimination based on remaining games
     const teamsMap = new Map<string, any>();
     for (const t of state.seasonTeams || []) teamsMap.set(t.teamId, t);
 
@@ -1271,6 +1398,11 @@ class LeagueStore {
       if (!team) continue;
       const wins = Number(team.currentWins ?? 0);
       const losses = Number(team.currentLosses ?? 0);
+      const ties = Number(team.currentTies ?? 0);
+      const gamesRemaining = Number(
+        team.gamesRemaining ?? Math.max(0, 17 - (wins + losses + ties))
+      );
+      const maxPossibleWins = wins + gamesRemaining;
       const line = Number(sp.line ?? team.winTotalLine ?? 0);
       const isOver = sp.selection === 'OVER';
       const mult = sp.isLock ? 2 : 1;
@@ -1279,28 +1411,45 @@ class LeagueStore {
         if (wins > line) {
           sp.result = 'win';
           sp.pointsAwarded = mult * 1;
-        } else if (17 - losses < line) {
+          sp.statusDetail = `Clinched OVER (${wins}W > ${line})`;
+        } else if (maxPossibleWins < line) {
           sp.result = 'loss';
           sp.pointsAwarded = mult * -1;
+          sp.statusDetail = `Mathematically Eliminated (Max ${maxPossibleWins}W < ${line}, ${gamesRemaining}G left)`;
+        } else if (gamesRemaining === 0 && wins === line) {
+          sp.result = 'push';
+          sp.pointsAwarded = 0;
+          sp.statusDetail = `Push (${wins}W = ${line})`;
         } else {
           sp.result = 'pending';
           sp.pointsAwarded = 0;
+          const needed = Math.floor(line) + 1 - wins;
+          sp.statusDetail = `Live • Needs ${needed}W in ${gamesRemaining}G left`;
         }
       } else {
-        if (losses > 17 - line) {
+        // UNDER selection
+        if (maxPossibleWins < line) {
           sp.result = 'win';
           sp.pointsAwarded = mult * 1;
+          sp.statusDetail = `Clinched UNDER (Max ${maxPossibleWins}W < ${line}, ${gamesRemaining}G left)`;
         } else if (wins > line) {
           sp.result = 'loss';
           sp.pointsAwarded = mult * -1;
+          sp.statusDetail = `Mathematically Eliminated (${wins}W > ${line})`;
+        } else if (gamesRemaining === 0 && wins === line) {
+          sp.result = 'push';
+          sp.pointsAwarded = 0;
+          sp.statusDetail = `Push (${wins}W = ${line})`;
         } else {
           sp.result = 'pending';
           sp.pointsAwarded = 0;
+          const maxMoreWins = Math.ceil(line) - 1 - wins;
+          sp.statusDetail = `Live • Max ${maxMoreWins} more W allowed in ${gamesRemaining}G left`;
         }
       }
     }
 
-    // Automatic settlement of completed weeks
+    // 4. Automatic settlement of completed weeks
     const users: any[] = state.users || [];
     const ledger: any[] = state.ledger || [];
     const picks: any[] = state.picks || [];
@@ -1396,7 +1545,7 @@ class LeagueStore {
 
   _generateDefaultState(): Record<string, any> {
     return {
-      currentWeek: 4,
+      currentWeek: 10,
       seasonYear: 2026,
       isSeasonStarted: true,
       seasonOULocked: true,
@@ -1499,7 +1648,7 @@ const server = http.createServer(async (req, res) => {
     if (pathname === '/api/picks/league') {
       try {
         const weekParam = parsedUrl.searchParams.get('week');
-        const week = weekParam ? parseInt(weekParam, 10) : (leagueStore.state.currentWeek || 4);
+        const week = weekParam ? parseInt(weekParam, 10) : (leagueStore.state.currentWeek || 10);
         const picks = leagueStore.getLeaguePicks(week, viewerId);
         sendJson(res, { success: true, week, picks });
       } catch (err: any) {
@@ -1538,7 +1687,6 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
-    // Serve static files from public/ if present
     const safeRelPath = path.normalize(pathname).replace(/^(\.\.(\/|\\|$))+/, '');
     const publicFile = path.join(ROOT_DIR, 'public', safeRelPath);
     if (pathname !== '/' && fs.existsSync(publicFile) && fs.statSync(publicFile).isFile()) {
@@ -1562,7 +1710,6 @@ const server = http.createServer(async (req, res) => {
       return;
     }
 
-    // Serve Web Frontend UI (templates/index.html)
     const htmlFile = path.join(TEMPLATES_DIR, 'index.html');
     if (fs.existsSync(htmlFile)) {
       const content = fs.readFileSync(htmlFile);
@@ -1770,15 +1917,75 @@ const server = http.createServer(async (req, res) => {
   sendJson(res, { success: false, error: `Unsupported method ${method}` }, 405);
 });
 
-// Periodic ESPN live sync every 60s
+async function ensureFullEspnScheduleLoaded() {
+  const hasLegacyGames = (leagueStore.state.games || []).some(
+    (g: any) => !g.espnId || String(g.id).startsWith('gm_w')
+  );
+  if (hasLegacyGames || (leagueStore.state.games || []).length < 250) {
+    console.log('Syncing full 18-week NFL schedule from ESPN...');
+    const defBoard = await leagueStore.fetchEspnScoreboard(null);
+    if (defBoard.currentWeek) {
+      leagueStore.state.currentWeek = defBoard.currentWeek;
+    }
+    for (let w = 1; w <= 18; w++) {
+      await leagueStore.syncLiveNflData(w);
+    }
+    // Reassign historical picks for completed weeks 1..(currentWeek-1) if picks still reference old gm_w IDs
+    const validGameIds = new Set((leagueStore.state.games || []).map((g: any) => g.id));
+    const hasInvalidPicks = (leagueStore.state.picks || []).some((p: any) => !validGameIds.has(p.gameId));
+    if (hasInvalidPicks) {
+      const currentWeek = leagueStore.state.currentWeek || 10;
+      const users = leagueStore.state.users || [];
+      const newPicks: any[] = [];
+      for (let w = 1; w < currentWeek; w++) {
+        const wGames = (leagueStore.state.games || []).filter((g: any) => g.week === w && g.status === 'final');
+        if (wGames.length < 5) continue;
+        const featGame = wGames.find((g: any) => g.isFeatured) || wGames[0];
+        const otherGames = wGames.filter((g: any) => g.id !== featGame.id);
+        users.forEach((u: any, uIdx: number) => {
+          const isBlazing = u.blazingWeekUsed === w;
+          const chosenGames = [featGame];
+          for (let i = 0; i < 4; i++) {
+            chosenGames.push(otherGames[(uIdx * 2 + w + i) % otherGames.length]);
+          }
+          chosenGames.forEach((g: any, pIdx: number) => {
+            const pickSide = (uIdx + w + pIdx) % 2 === 0 ? 'home' : 'away';
+            const isLock = isBlazing || pIdx === 0;
+            const spread = pickSide === 'home' ? g.homeSpread : g.awaySpread;
+            const teamName = pickSide === 'home' ? g.homeTeam.name : g.awayTeam.name;
+            newPicks.push({
+              id: `pick_w${w}_${u.id}_${g.id}`,
+              userId: u.id,
+              week: w,
+              gameId: g.id,
+              pickedTeam: pickSide,
+              pickedTeamName: teamName,
+              lockedSpread: spread,
+              isLock,
+              isBlazingWeek: isBlazing,
+              result: 'pending',
+              pointsAwarded: 0,
+              submittedAt: g.kickoffTime,
+            });
+          });
+        });
+      }
+      leagueStore.state.picks = newPicks;
+      leagueStore._calculatePicksResults(leagueStore.state);
+      leagueStore.saveState();
+    }
+    console.log('Full 18-week ESPN schedule synced:', leagueStore.state.games.length, 'games.');
+  } else {
+    await leagueStore.syncLiveNflData(null);
+  }
+}
+
 setTimeout(() => {
-  const currWeek = leagueStore.state.currentWeek || 4;
-  leagueStore.syncLiveNflData(currWeek).catch(() => {});
+  ensureFullEspnScheduleLoaded().catch(() => {});
   setInterval(() => {
-    const w = leagueStore.state.currentWeek || 4;
-    leagueStore.syncLiveNflData(w).catch(() => {});
+    leagueStore.syncLiveNflData(null).catch(() => {});
   }, 60_000);
-}, 3000);
+}, 1000);
 
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`🔥 Blazing 5 Pick'em server running on http://0.0.0.0:${PORT}`);
