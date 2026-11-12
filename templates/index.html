@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blazing 5 NFL Pick'em</title>
+  <meta name="description" content="Against-The-Spread NFL fantasy pick'em league with Blazing Weeks, locks, season win totals, official Vegas spreads, and automated pot tracking." />
+  <meta property="og:title" content="Blazing 5 NFL Pick'em" />
+  <meta property="og:description" content="Against-The-Spread NFL fantasy pick'em league with Blazing Weeks, locks, season win totals, official Vegas spreads, and automated pot tracking." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    body { background-color: #0b0f19; color: #f1f5f9; font-family: ui-sans-serif, system-ui, sans-serif; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    /* Touch friendly tap targets and smooth drawer */
+    .touch-manipulation { touch-action: manipulation; }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-rose-500 selection:text-white pb-20">
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-slate-900 border-b border-slate-800 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('picks')">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-rose-600 flex items-center justify-center shadow-md shadow-rose-500/20">
+          <i class="fa-solid fa-fire text-xl text-white animate-pulse"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <span class="font-black text-lg tracking-tight bg-gradient-to-r from-amber-400 via-rose-300 to-white bg-clip-text text-transparent">
+              BLAZING 5
+            </span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-rose-950/80 text-rose-300 border border-rose-800/60">
+              PYTHON ATS
+            </span>
+          </div>
+          <div class="text-[11px] text-slate-400 font-medium" id="header-week-info">
+            Loading...
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Status -->
+      <div class="hidden md:flex items-center space-x-2 bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700/60 text-xs">
+        <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+        <span class="text-slate-300 text-xs font-semibold">Official League Spreads (ATS)</span>
+      </div>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center space-x-3">
+        <button onclick="toggleRulesModal(true)" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 bg-slate-800/90 hover:bg-slate-700 border border-slate-700 transition">
+          <i class="fa-solid fa-book-open text-amber-400"></i>
+          <span class="hidden sm:inline">Rules</span>
+        </button>
+
+        <!-- Current User Switcher Dropdown -->
+        <div class="relative">
+          <button id="user-menu-btn" onclick="toggleUserDropdown()" class="flex items-center space-x-2 bg-slate-800 hover:bg-slate-750 border border-slate-700 rounded-xl px-2.5 py-1.5 transition">
+            <img id="current-user-avatar" class="w-6 h-6 rounded-full border border-amber-400" src="" alt="avatar">
+            <span id="current-user-name" class="text-xs font-bold text-slate-200">User</span>
+            <i class="fa-solid fa-chevron-down text-[10px] text-slate-400"></i>
+          </button>
+          <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl py-2 z-50">
+            <div class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-800">
+              Switch Player / View Role
+            </div>
+            <div id="user-dropdown-list" class="max-h-60 overflow-y-auto"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Bottom Navigation Bar (Visible on mobile screens) -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-slate-900/95 backdrop-blur-md border-t border-slate-800 px-3 py-2 flex items-center justify-around text-slate-400">
+    <button onclick="switchTab('picks')" id="mob-nav-picks" class="flex flex-col items-center space-y-1 text-rose-500 font-bold touch-manipulation">
+      <i class="fa-solid fa-football text-base"></i>
+      <span class="text-[10px]">Picks</span>
+    </button>
+    <button onclick="switchTab('standings')" id="mob-nav-standings" class="flex flex-col items-center space-y-1 hover:text-slate-200 touch-manipulation">
+      <i class="fa-solid fa-trophy text-base"></i>
+      <span class="text-[10px]">Standings</span>
+    </button>
+    <!-- Mobile floating bet slip open button (shows count badge) -->
+    <button onclick="toggleMobileBetSlip(true)" class="relative -top-4 w-12 h-12 rounded-full bg-gradient-to-tr from-amber-500 to-rose-600 text-white flex items-center justify-center shadow-lg shadow-rose-600/40 border-2 border-slate-900 touch-manipulation">
+      <i class="fa-solid fa-receipt text-lg"></i>
+      <span id="mob-slip-badge" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-rose-600 text-white text-[10px] font-black flex items-center justify-center border border-slate-900">0</span>
+    </button>
+    <button onclick="switchTab('season-ou')" id="mob-nav-season-ou" class="flex flex-col items-center space-y-1 hover:text-slate-200 touch-manipulation">
+      <i class="fa-solid fa-chart-line text-base"></i>
+      <span class="text-[10px]">Win Totals</span>
+    </button>
+    <button onclick="switchTab('admin')" id="mob-nav-admin" class="flex flex-col items-center space-y-1 hover:text-slate-200 touch-manipulation">
+      <i class="fa-solid fa-shield-halved text-base text-amber-400"></i>
+      <span class="text-[10px]">Admin</span>
+    </button>
+  </nav>
+
+  <!-- Mobile Floating Bet Slip Bottom Sheet Modal -->
+  <div id="mob-slip-drawer" class="hidden fixed inset-0 z-50 bg-black/80 flex flex-col justify-end md:hidden">
+    <div onclick="toggleMobileBetSlip(false)" class="flex-1"></div>
+    <div class="bg-slate-900 border-t border-slate-700 rounded-t-3xl p-5 space-y-4 shadow-2xl max-h-[85vh] overflow-y-auto animate-slide-up">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-rose-950 border border-rose-800 flex items-center justify-center text-rose-400">
+            <i class="fa-solid fa-receipt"></i>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-100 text-sm">Your Weekly Bet Slip</h3>
+            <p class="text-[10px] text-slate-400">5 picks against the spread • 1 Lock</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-3">
+          <span id="mob-slip-count-badge" class="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-800 text-slate-300">0/5</span>
+          <button onclick="toggleMobileBetSlip(false)" class="text-slate-400 hover:text-white text-2xl font-bold p-1">&times;</button>
+        </div>
+      </div>
+
+      <div id="mob-slip-picks-list" class="space-y-2 text-xs">
+        <!-- Rendered in sync with desktop bet slip -->
+      </div>
+
+      <div class="pt-3 border-t border-slate-800 space-y-2.5">
+        <div class="flex items-center justify-between text-xs text-slate-400">
+          <span>Must-Pick Game:</span>
+          <span id="mob-slip-must-pick-status" class="text-rose-400 font-bold">Missing</span>
+        </div>
+        <div class="flex items-center justify-between text-xs text-slate-400">
+          <span>Lock Status:</span>
+          <span id="mob-slip-lock-status" class="text-amber-400 font-bold">1 Required</span>
+        </div>
+
+        <button id="mob-btn-submit-picks" onclick="submitPicks(); toggleMobileBetSlip(false);" disabled class="w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider bg-slate-800 text-slate-500 cursor-not-allowed shadow-none transition flex items-center justify-center space-x-2 touch-manipulation">
+          <i class="fa-solid fa-check"></i>
+          <span>Select 5 Picks to Submit</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Banner -->
+  <div id="notification-banner" class="hidden max-w-7xl mx-auto px-4 mt-3">
+    <div id="notification-box" class="p-3 rounded-xl border flex items-center justify-between text-xs font-semibold shadow-lg">
+      <div class="flex items-center space-x-2">
+        <i id="notification-icon" class="fa-solid"></i>
+        <span id="notification-text">Message</span>
+      </div>
+      <button onclick="hideNotification()" class="text-slate-400 hover:text-white">&times;</button>
+    </div>
+  </div>
+
+  <!-- Navigation Tabs (Desktop / Tablet >= md) -->
+  <div class="hidden md:block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-5 w-full">
+    <div class="flex items-center space-x-2 border-b border-slate-800 pb-3 overflow-x-auto no-scrollbar">
+      <button onclick="switchTab('picks')" id="tab-btn-picks" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 bg-rose-600 text-white shadow-lg shadow-rose-600/30">
+        <i class="fa-solid fa-football"></i>
+        <span>Weekly Picks</span>
+      </button>
+      <button onclick="switchTab('standings')" id="tab-btn-standings" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800">
+        <i class="fa-solid fa-trophy"></i>
+        <span>Standings & Pot</span>
+      </button>
+      <button onclick="switchTab('season-ou')" id="tab-btn-season-ou" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Season O/U</span>
+      </button>
+      <button onclick="switchTab('admin')" id="tab-btn-admin" class="tab-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800">
+        <i class="fa-solid fa-shield-halved text-amber-400"></i>
+        <span>Commissioner</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN TAB CONTENT CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full flex-1">
+
+    <!-- 1. WEEKLY PICKS TAB -->
+    <div id="tab-picks" class="space-y-6">
+      <!-- Week Selector & Action Bar -->
+      <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-rose-400">NFL 18-Week Pick'em</div>
+          <h1 class="text-2xl font-black text-slate-100" id="picks-title">NFL Week 4 Lines & Picks</h1>
+        </div>
+        <!-- Right side: Week buttons + Member Picks Board button + ESPN Live Sync -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- ESPN Live Indicator & Refresh Button -->
+          <button onclick="triggerLiveEspnSync()" id="btn-live-espn-sync" title="Click to refresh live NFL scores & Vegas lines from ESPN" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 flex items-center space-x-2 transition shadow-sm shrink-0">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="font-mono text-[11px] text-emerald-400">ESPN LIVE</span>
+            <i class="fa-solid fa-arrows-rotate text-[11px] text-slate-400" id="sync-icon"></i>
+          </button>
+          <button onclick="openLeaguePicksModal()" class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center space-x-1.5 shadow-sm transition shrink-0">
+            <i class="fa-solid fa-users-viewfinder"></i>
+            <span>All Member Picks</span>
+          </button>
+          <!-- 18 Weeks Buttons -->
+          <div class="flex items-center space-x-1 overflow-x-auto no-scrollbar py-1" id="week-buttons-bar"></div>
+        </div>
+      </div>
+
+      <!-- Featured Must-Pick Game Banner -->
+      <div class="bg-gradient-to-r from-amber-950/40 via-slate-900 to-slate-900 rounded-2xl border border-amber-900/50 p-4 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="space-y-1">
+          <div class="flex items-center space-x-2">
+            <span class="px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-amber-500 text-slate-950">
+              <i class="fa-solid fa-star"></i> Must-Pick Game of the Week
+            </span>
+          </div>
+          <div class="text-base font-bold text-white flex items-center space-x-2" id="featured-game-summary">
+            <span>Loading featured game...</span>
+          </div>
+          <div class="text-xs text-slate-400 flex flex-wrap items-center gap-2" id="featured-picker-controls">
+            <span>Must-Pick Chooser:</span>
+            <span id="featured-picker-name" class="font-bold text-amber-300">Loading...</span>
+            <span class="text-slate-500">• Must be included in everyone's 5 picks!</span>
+          </div>
+        </div>
+
+        <button onclick="openFeaturedPickerModal()" id="btn-change-featured-game" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 flex items-center space-x-1.5 shadow-md shadow-amber-500/20 transition shrink-0">
+          <i class="fa-solid fa-pen-to-square"></i>
+          <span>Pick Featured Game</span>
+        </button>
+      </div>
+
+      <!-- Blazing Week Declaration Banner -->
+      <div id="blazing-week-banner" class="bg-slate-900 rounded-2xl border border-slate-800 p-4 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3"></div>
+
+      <!-- Matchups Grid + Floating Bet Slip -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Matchups (Left 2 cols on lg, full width on mobile) -->
+        <div class="lg:col-span-2 space-y-3" id="matchups-container">
+          <div class="text-slate-400 text-sm py-8 text-center">Loading NFL games & spreads...</div>
+        </div>
+
+        <!-- Bet Slip: Sticky sidebar on desktop, hidden on small screens in favor of bottom sheet -->
+        <div class="hidden lg:block bg-slate-900 rounded-2xl border border-slate-800 p-4 shadow-xl space-y-4 self-start sticky top-20">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-receipt text-rose-500"></i>
+              <h3 class="font-bold text-slate-100 text-sm">Your Weekly Bet Slip</h3>
+            </div>
+            <span id="slip-count-badge" class="px-2 py-0.5 rounded text-[11px] font-bold bg-slate-800 text-slate-300">0/5 Selected</span>
+          </div>
+
+          <div id="slip-picks-list" class="space-y-2 text-xs">
+            <div class="text-slate-500 italic py-6 text-center">No games selected yet. Click teams on the left to pick against the spread.</div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-800 space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span>Must-Pick Game:</span>
+              <span id="slip-must-pick-status" class="text-rose-400 font-bold">Missing</span>
+            </div>
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span>Lock Status:</span>
+              <span id="slip-lock-status" class="text-amber-400 font-bold">1 Required</span>
+            </div>
+
+            <button id="btn-submit-picks" onclick="submitPicks()" disabled class="w-full py-3 rounded-xl font-bold text-xs bg-rose-600 hover:bg-rose-500 disabled:opacity-40 disabled:pointer-events-none text-white shadow-lg shadow-rose-600/30 transition flex items-center justify-center space-x-2">
+              <i class="fa-solid fa-check"></i>
+              <span>Lock In 5 Picks</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. STANDINGS & POT TAB -->
+    <div id="tab-standings" class="hidden space-y-6">
+      <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 sm:p-6 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-amber-400">
+            <i class="fa-solid fa-trophy"></i> Championship Leaderboard & Pot
+          </div>
+          <h2 class="text-2xl font-black text-slate-100 tracking-tight mt-1">Season Standings & Prize Pool</h2>
+          <p class="text-xs text-slate-400">Rankings determined by total ATS points. First tiebreaker: Lock Wins. Top 5 places win cash payouts.</p>
+        </div>
+
+        <!-- Pot Metric Cards -->
+        <div class="flex items-center space-x-3">
+          <div class="bg-slate-850 px-4 py-2.5 rounded-xl border border-slate-800 text-center">
+            <div class="text-[10px] font-bold uppercase text-slate-400">Total Pot</div>
+            <div id="pot-total-number" class="text-lg font-black text-emerald-400">$0</div>
+          </div>
+          <div class="bg-slate-850 px-4 py-2.5 rounded-xl border border-slate-800 text-center">
+            <div class="text-[10px] font-bold uppercase text-slate-400">1st Place (50%)</div>
+            <div id="pot-first-number" class="text-lg font-black text-amber-300">$0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Standings View: Mobile Cards (visible < md) & Full Table (visible >= md) -->
+      <!-- Mobile Standings Cards -->
+      <div class="md:hidden space-y-2.5" id="standings-mobile-cards"></div>
+
+      <!-- Desktop Standings Table -->
+      <div class="hidden md:block bg-slate-900 rounded-2xl border border-slate-800 shadow-xl overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-850 text-slate-400 uppercase tracking-wider text-[10px] border-b border-slate-800 font-bold">
+              <tr>
+                <th class="py-3 px-4">Rank</th>
+                <th class="py-3 px-4">Player</th>
+                <th class="py-3 px-4">Record (W-L-P)</th>
+                <th class="py-3 px-4">Lock Record</th>
+                <th class="py-3 px-4">Season O/U</th>
+                <th class="py-3 px-4">Blazing Week</th>
+                <th class="py-3 px-4 text-right">Points</th>
+                <th class="py-3 px-4 text-right">Projected Prize</th>
+              </tr>
+            </thead>
+            <tbody id="standings-table-body" class="divide-y divide-slate-800 font-medium"></tbody>
+          </table>
+        </div>
+      </div>
+
+      </div>
+    </div>
+
+    <!-- 3. SEASON O/U TAB -->
+    <div id="tab-season-ou" class="hidden space-y-6">
+      <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 sm:p-6 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-cyan-400">NFL Pre-Season Win Totals</div>
+          <h2 class="text-2xl font-black text-slate-100 tracking-tight mt-1">Season Over / Under Picks</h2>
+          <p class="text-xs text-slate-400">5 team selections per player with 1 Lock (±2 wins/losses). Submitted picks are visible to everyone.</p>
+        </div>
+        <div id="season-ou-status-pill" class="px-3 py-1.5 rounded-xl border text-xs font-bold"></div>
+      </div>
+
+      <!-- League Members' Season O/U Submissions -->
+      <div class="space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="font-bold text-slate-100 text-sm flex items-center space-x-2">
+            <i class="fa-solid fa-users text-cyan-400"></i>
+            <span>League Member Season O/U Selections</span>
+          </h3>
+          <span class="text-xs text-slate-400 font-medium">All members' 5 teams & designated Locks</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="season-ou-members-container">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- 32 Teams Vegas Win Totals Board -->
+      <div class="space-y-3 pt-4 border-t border-slate-800">
+        <h3 class="font-bold text-slate-100 text-sm flex items-center space-x-2">
+          <i class="fa-solid fa-football text-amber-400"></i>
+          <span>NFL 32-Team Vegas Win Totals Board</span>
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3" id="season-teams-container"></div>
+      </div>
+    </div>
+
+    <!-- 4. COMMISSIONER CONTROL PANEL TAB -->
+    <div id="tab-admin" class="hidden space-y-6">
+      <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 sm:p-6 shadow-xl flex items-center justify-between">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center space-x-1.5">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>League Manager Panel</span>
+          </div>
+          <h2 class="text-2xl font-black text-slate-100 mt-1">Commissioner Controls & Overrides</h2>
+          <p class="text-xs text-slate-400">Manage running player financials, Blazing Weeks, Must-Pick choosers, and official spreads.</p>
+        </div>
+      </div>
+
+      <!-- Running View: Player Balances & Payouts -->
+      <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 sm:p-6 shadow-xl space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <h3 class="font-black text-slate-100 text-base flex items-center space-x-2">
+              <i class="fa-solid fa-wallet text-emerald-400"></i>
+              <span>Player Balances & Running Ledger</span>
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">Running view showing $25 buy-in, bonuses/penalties, projected prize pot share, and net profit/loss per player.</p>
+          </div>
+          <div class="flex items-center space-x-2" id="admin-finances-kpis">
+            <!-- KPIs rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Mobile Commissioner Financial Cards (< md) -->
+        <div class="md:hidden space-y-2.5" id="admin-finances-mobile-cards"></div>
+
+        <!-- Desktop Commissioner Financial Table (>= md) -->
+        <div class="hidden md:block overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="text-slate-400 font-bold border-b border-slate-800 text-[11px] uppercase tracking-wider">
+                <th class="py-2.5 px-3">Player</th>
+                <th class="py-2.5 px-3">Buy-In</th>
+                <th class="py-2.5 px-3">Weekly Bounties</th>
+                <th class="py-2.5 px-3">Weekly Penalties</th>
+                <th class="py-2.5 px-3">Projected Pot Share</th>
+                <th class="py-2.5 px-3">Running Balance</th>
+                <th class="py-2.5 px-3 text-right">Net Profit / Loss</th>
+                <th class="py-2.5 px-3 text-center">Payment Status</th>
+              </tr>
+            </thead>
+            <tbody id="admin-finances-table-body" class="divide-y divide-slate-800 font-medium">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Quick Actions Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <!-- Active Week Selector -->
+        <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 space-y-3">
+          <div class="text-xs font-bold uppercase text-slate-300">Set Active NFL Week</div>
+          <div class="grid grid-cols-6 gap-1" id="admin-week-selector"></div>
+        </div>
+
+        <!-- Featured Picker Dropdown -->
+        <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 space-y-2">
+          <div class="text-xs font-bold uppercase text-slate-300">Must-Pick Chooser (Current Week)</div>
+          <select id="admin-featured-picker-select" onchange="adminUpdateFeaturedPicker()" class="w-full bg-slate-950 border border-slate-700 text-xs rounded-lg px-2.5 py-2 text-slate-100"></select>
+          <button onclick="toggleAllWeeksPickerSchedule()" class="text-[11px] text-amber-400 hover:underline font-semibold block pt-1">
+            Toggle Full 18-Week Chooser Rotation →
+          </button>
+        </div>
+
+        <!-- Live ESPN NFL Data Sync Engine -->
+        <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 space-y-2 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-slate-300">Live ESPN Feed</span>
+              <span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-emerald-950 text-emerald-400 border border-emerald-800 flex items-center space-x-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>Real-Time</span>
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-1">Direct API link to live scores, quarter clocks & Vegas spreads.</p>
+          </div>
+          <button onclick="triggerLiveEspnSync()" class="w-full py-2 bg-slate-800 hover:bg-slate-750 text-emerald-400 font-bold text-xs rounded-xl border border-slate-700 transition flex items-center justify-center space-x-2">
+            <i class="fa-solid fa-cloud-arrow-down"></i>
+            <span>Force ESPN Sync Now</span>
+          </button>
+        </div>
+
+        <!-- Automated Real-Time Settlement Status -->
+        <div class="bg-slate-900 p-4 rounded-2xl border border-slate-800 space-y-2 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-slate-300">Automated Settlement</span>
+              <span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-emerald-950 text-emerald-400 border border-emerald-800 flex items-center space-x-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Active</span>
+              </span>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-1">Bounties & penalties are awarded automatically once games reach Final.</p>
+          </div>
+          <div class="p-2 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-[11px]">
+            <span class="text-slate-400 font-medium">Settlement:</span>
+            <span class="font-bold text-emerald-400 font-mono text-[10px]" id="admin-auto-settle-status">Live Monitoring</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 18-Week Chooser Rotation Grid (Expandable) -->
+      <div id="all-weeks-picker-panel" class="hidden bg-slate-900 p-4 sm:p-6 rounded-2xl border border-slate-800 space-y-3">
+        <h3 class="font-bold text-slate-200 text-sm">18-Week Featured Game Picker Schedule</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2" id="admin-18-week-grid"></div>
+      </div>
+
+      <!-- 18-Week Unlock & Opening Schedule (Tuesday Midnight ET Rule) -->
+      <div class="bg-slate-900 p-4 sm:p-6 rounded-2xl border border-slate-800 space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
+          <div>
+            <h3 class="font-bold text-slate-100 text-sm flex items-center space-x-2">
+              <i class="fa-solid fa-calendar-check text-cyan-400"></i>
+              <span>18-Week Opening Schedule (Tuesday Midnight Eastern Rule)</span>
+            </h3>
+            <p class="text-xs text-slate-400 mt-0.5">Spreads and picks unlock automatically each Tuesday at 12:00 AM ET. Commissioner can force-unlock early for advance lines if desired.</p>
+          </div>
+          <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2.5 py-1 rounded-xl border border-cyan-800 font-bold self-start sm:self-auto">Rule: Tuesday 12:00 AM ET</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2" id="admin-week-unlock-grid"></div>
+      </div>
+
+      <!-- Blazing Week Management Panel -->
+      <div class="bg-slate-900 p-4 sm:p-6 rounded-2xl border border-slate-800 space-y-4">
+        <div>
+          <div class="flex items-center space-x-2 text-sm font-bold text-slate-100">
+            <i class="fa-solid fa-fire text-rose-500"></i>
+            <span>Blazing Week Management & Commissioner Overrides</span>
+          </div>
+          <p class="text-xs text-slate-400 mt-0.5">As commissioner, you can assign, reassign, or reset any player's Blazing Week at any time.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" id="admin-blazing-week-grid"></div>
+      </div>
+
+      <!-- Spread & Score Overrides -->
+      <div class="bg-slate-900 rounded-2xl border border-slate-800 p-4 sm:p-6 space-y-4 shadow-xl">
+        <h3 class="font-bold text-slate-100 text-sm">Game Spread & Status Overrides</h3>
+        <div class="divide-y divide-slate-800" id="admin-game-override-list"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL: All Member Picks Matrix -->
+  <div id="modal-league-picks" class="hidden fixed inset-0 z-50 bg-black/85 flex items-center justify-center p-3 sm:p-5">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+      <!-- Modal Header -->
+      <div class="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
+        <div>
+          <div class="flex items-center space-x-2 text-xs font-bold text-amber-400 uppercase tracking-wider">
+            <i class="fa-solid fa-users-viewfinder"></i>
+            <span id="league-picks-modal-subtitle">Week 4 League Picks</span>
+          </div>
+          <h3 class="text-lg font-black text-slate-100 mt-0.5">Live League Picks & Matchup Status</h3>
+          <p class="text-[11px] text-slate-400 mt-0.5">Picks unlock automatically as each individual game kicks off. Unstarted games remain strictly confidential.</p>
+        </div>
+        <button onclick="closeLeaguePicksModal()" class="text-slate-400 hover:text-white text-2xl px-2 font-bold">&times;</button>
+      </div>
+
+      <!-- Modal Body (Grid of members) -->
+      <div class="p-4 sm:p-6 overflow-y-auto space-y-4 flex-1" id="league-picks-modal-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Featured Game Picker -->
+  <div id="modal-featured-game" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-xl w-full p-5 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="font-bold text-slate-100 text-sm">Select Must-Pick Featured Game</div>
+        <button onclick="closeFeaturedPickerModal()" class="text-slate-400 hover:text-white">&times;</button>
+      </div>
+      <div id="modal-featured-game-list" class="space-y-2 max-h-96 overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- MODAL: Rules -->
+  <div id="modal-rules" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="font-black text-slate-100 text-base flex items-center space-x-2">
+          <i class="fa-solid fa-fire text-rose-500"></i>
+          <span>Blazing 5 Pick'em Rules</span>
+        </h3>
+        <button onclick="toggleRulesModal(false)" class="text-slate-400 hover:text-white">&times;</button>
+      </div>
+      <div class="text-xs text-slate-300 space-y-3 leading-relaxed max-h-[70vh] overflow-y-auto">
+        <p><strong>1. Buy-in:</strong> $25 entry fee per player creates the season prize pool.</p>
+        <p><strong>2. 5 Weekly ATS Picks:</strong> Each participant selects 5 games against the spread each week.</p>
+        <p><strong>3. The LOCK (±2 wins/losses):</strong> Exactly 1 of your 5 weekly picks MUST be designated as your LOCK. Regular picks are worth ±1, while the LOCK is worth ±2.</p>
+        <p><strong>4. 🔥 Blazing Week:</strong> Each player must declare a Blazing Week once per season. During this week, ALL 5 picks become LOCKs worth ±2 each (up to 10 points). If undeclared, it defaults to Week 18.</p>
+        <p><strong>5. Must-Pick Game:</strong> Each week has 1 mandatory featured game that EVERY participant must include in their 5 selections. An assigned player chooses this game.</p>
+        <p><strong>6. Perfect Week Bounty:</strong> Going 6-0 (or 5-0) earns a +$5 cash bounty from the pot. A 0-6 winless week pays a $5 penalty into the pot.</p>
+        <p><strong>7. Season Over/Under:</strong> 5 team win total picks (1 Lock) selected before Week 1 kickoff.</p>
+        <p><strong>8. Payouts:</strong> 1st: 50%, 2nd: 25%, 3rd: 12.5%, 4th: 7.5%, 5th: 5%.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT: Vanilla JS Interactive Controller -->
+  <script>
+    let appState = null;
+    let appStandings = [];
+    let appLeaguePicks = [];
+    let currentUserId = null;
+    let selectedWeek = 4;
+    let selectedPicks = []; // Array of { gameId, pickedTeam, isLock }
+
+    // Init
+    window.addEventListener('DOMContentLoaded', async () => {
+      await loadLeagueData();
+      // Auto-poll live game updates every 30 seconds
+      setInterval(async () => {
+        try {
+          const queryViewer = currentUserId ? `?viewerId=${currentUserId}` : '';
+          const res = await fetch(`/api/state${queryViewer}`);
+          const data = await res.json();
+          if (data.success) {
+            appState = data.state;
+            appStandings = data.standings;
+            renderApp();
+          }
+        } catch (e) {
+          // background poll silent
+        }
+      }, 30000);
+    });
+
+    async function loadLeagueData() {
+      try {
+        const queryViewer = currentUserId ? `?viewerId=${currentUserId}` : '';
+        const res = await fetch(`/api/state${queryViewer}`);
+        const data = await res.json();
+        if (data.success) {
+          appState = data.state;
+          appStandings = data.standings;
+          if (!currentUserId && appState.users.length > 0) {
+            currentUserId = appState.users[0].id;
+          }
+          if (!selectedWeek && appState.currentWeek) {
+            selectedWeek = appState.currentWeek;
+          }
+        }
+
+        // Also fetch league picks for current selected week
+        await fetchLeaguePicksForWeek(selectedWeek);
+
+        renderApp();
+      } catch (err) {
+        console.error('Failed to load league data:', err);
+      }
+    }
+
+    async function fetchLeaguePicksForWeek(w) {
+      try {
+        const queryViewer = currentUserId ? `&viewerId=${currentUserId}` : '';
+        const res = await fetch(`/api/picks/league?week=${w}${queryViewer}`);
+        const data = await res.json();
+        if (data.success) {
+          appLeaguePicks = data.picks || [];
+        }
+      } catch (err) {
+        console.warn('Failed to load league picks for week:', err);
+      }
+    }
+
+    function renderApp() {
+      renderHeader();
+      renderPicksTab();
+      renderStandingsTab();
+      renderSeasonOUTab();
+      renderAdminTab();
+    }
+
+    // --- Header ---
+    function renderHeader() {
+      const user = appState.users.find(u => u.id === currentUserId) || appState.users[0];
+      if (user) {
+        document.getElementById('current-user-avatar').src = user.avatar;
+        document.getElementById('current-user-name').innerText = user.name + (user.role === 'admin' ? ' (Admin)' : '');
+      }
+      document.getElementById('header-week-info').innerText = `Week ${appState.currentWeek} Active • ${appState.seasonYear} Season`;
+
+      // Render user switcher items
+      const userList = document.getElementById('user-dropdown-list');
+      userList.innerHTML = appState.users.map(u => `
+        <div onclick="switchUser('${u.id}')" class="px-3 py-2 hover:bg-slate-800 cursor-pointer flex items-center justify-between text-xs ${u.id === currentUserId ? 'bg-slate-800 text-amber-300 font-bold' : 'text-slate-300'}">
+          <div class="flex items-center space-x-2">
+            <img src="${u.avatar}" class="w-5 h-5 rounded-full" />
+            <span>${u.name}</span>
+          </div>
+          <span class="text-[9px] uppercase px-1 py-0.5 rounded ${u.role === 'admin' ? 'bg-amber-950 text-amber-400' : 'bg-slate-800 text-slate-500'}">${u.role}</span>
+        </div>
+      `).join('');
+    }
+
+    async function switchUser(userId) {
+      currentUserId = userId;
+      toggleUserDropdown(false);
+      await loadLeagueData();
+    }
+
+    function toggleUserDropdown(force) {
+      const drop = document.getElementById('user-dropdown');
+      if (force !== undefined) drop.classList.toggle('hidden', !force);
+      else drop.classList.toggle('hidden');
+    }
+
+    // --- Tab Switching ---
+    let activeTab = 'picks';
+    function switchTab(tabId) {
+      activeTab = tabId;
+      ['picks', 'standings', 'season-ou', 'admin'].forEach(t => {
+        const tabEl = document.getElementById(`tab-${t}`);
+        if (tabEl) tabEl.classList.toggle('hidden', t !== tabId);
+        
+        // Desktop nav buttons
+        const btn = document.getElementById(`tab-btn-${t}`);
+        if (btn) {
+          if (t === tabId) {
+            btn.className = "tab-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 bg-rose-600 text-white shadow-lg shadow-rose-600/30";
+          } else {
+            btn.className = "tab-btn px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 text-slate-400 hover:text-slate-200 hover:bg-slate-800";
+          }
+        }
+
+        // Mobile bottom nav buttons
+        const mobBtn = document.getElementById(`mob-nav-${t}`);
+        if (mobBtn) {
+          if (t === tabId) {
+            mobBtn.className = "flex flex-col items-center space-y-1 text-rose-500 font-black touch-manipulation";
+          } else {
+            mobBtn.className = "flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-200 touch-manipulation";
+          }
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileBetSlip(open) {
+      const drawer = document.getElementById('mob-slip-drawer');
+      if (drawer) {
+        if (open !== undefined) {
+          drawer.classList.toggle('hidden', !open);
+        } else {
+          drawer.classList.toggle('hidden');
+        }
+      }
+    }
+
+    // --- Picks Tab ---
+    function renderPicksTab() {
+      const weekStatus = (appState.weekStatuses && appState.weekStatuses[selectedWeek]) || {};
+      const isWeekUnlocked = weekStatus.isUnlocked !== false;
+      const unlockFormatted = weekStatus.fullFormatted || weekStatus.unlockFormatted || 'Tuesday midnight ET';
+
+      document.getElementById('picks-title').innerText = `NFL Week ${selectedWeek} Lines & Picks`;
+
+      // 18-week buttons bar with lock icons for future weeks
+      const bar = document.getElementById('week-buttons-bar');
+      bar.innerHTML = Array.from({length: 18}, (_, i) => i + 1).map(w => {
+        const ws = (appState.weekStatuses && appState.weekStatuses[w]) || {};
+        const isUnl = ws.isUnlocked !== false;
+        return `
+          <button onclick="selectWeek(${w})" class="px-2.5 py-1 rounded-lg text-xs font-bold transition flex items-center space-x-1 ${selectedWeek === w ? 'bg-rose-600 text-white shadow-md' : (w === appState.currentWeek ? 'bg-slate-800 text-amber-300 border border-amber-500/50' : 'bg-slate-850 text-slate-400 hover:text-slate-200')}">
+            <span>W${w}</span>
+            ${!isUnl ? '<span class="text-[9px] text-amber-400" title="Locked until Tuesday midnight ET">🔒</span>' : ''}
+          </button>
+        `;
+      }).join('');
+
+      // Featured Must-Pick Game
+      const weekCfg = appState.weeklyConfigs[selectedWeek] || {};
+      const featGame = appState.games.find(g => g.id === weekCfg.featuredGameId);
+      const featPicker = appState.users.find(u => u.id === weekCfg.featuredPickerId);
+      const currentUser = appState.users.find(u => u.id === currentUserId);
+      const isAdmin = currentUser && currentUser.role === 'admin';
+
+      if (!isWeekUnlocked) {
+        document.getElementById('featured-game-summary').innerHTML = `
+          <span class="text-amber-400 flex items-center space-x-1.5 font-medium">
+            <i class="fa-solid fa-lock text-[10px]"></i>
+            <span>Must-Pick Game & Spreads unlock on ${unlockFormatted}</span>
+          </span>
+        `;
+      } else if (featGame) {
+        document.getElementById('featured-game-summary').innerHTML = `
+          <span>${featGame.awayTeam.name} (${featGame.awaySpread > 0 ? '+' : ''}${featGame.awaySpread}) @ ${featGame.homeTeam.name} (${featGame.homeSpread > 0 ? '+' : ''}${featGame.homeSpread})</span>
+        `;
+      } else {
+        document.getElementById('featured-game-summary').innerHTML = `<span class="text-rose-400 italic">No featured game selected yet for Week ${selectedWeek}</span>`;
+      }
+
+      // Must-Pick Chooser: Show admin dropdown or name
+      const pickerControls = document.getElementById('featured-picker-controls');
+      if (isAdmin) {
+        pickerControls.innerHTML = `
+          <span>Must-Pick Chooser:</span>
+          <select onchange="updateFeaturedPickerFromPicks(this.value)" class="bg-slate-900 border border-amber-500 text-amber-300 text-xs rounded px-2 py-0.5 font-bold">
+            <option value="">-- Commissioner Pick --</option>
+            ${appState.users.map(u => `<option value="${u.id}" ${u.id === weekCfg.featuredPickerId ? 'selected' : ''}>${u.name}</option>`).join('')}
+          </select>
+          <span class="text-slate-500">• Must be included in everyone's 5 picks!</span>
+        `;
+      } else {
+        pickerControls.innerHTML = `
+          <span>Must-Pick Chooser:</span>
+          <strong class="text-amber-300">${featPicker ? featPicker.name : 'Commissioner'}</strong>
+          <span class="text-slate-500">• Must be included in everyone's 5 picks!</span>
+        `;
+      }
+
+      // Blazing Week Banner
+      const isUserBlazing = currentUser && (currentUser.blazingWeekUsed === selectedWeek || (selectedWeek === 18 && currentUser.blazingWeekUsed === null));
+      const canDeclare = currentUser && currentUser.blazingWeekUsed === null && selectedWeek !== 18;
+
+      const blazingBanner = document.getElementById('blazing-week-banner');
+      if (isUserBlazing) {
+        blazingBanner.innerHTML = `
+          <div class="flex items-center space-x-2 text-rose-400 font-bold text-xs">
+            <i class="fa-solid fa-fire text-lg"></i>
+            <span>🔥 Blazing Week Active! All 5 picks this week are LOCKs worth ±2 wins/losses!</span>
+          </div>
+          <span class="px-2.5 py-1 bg-rose-950 text-rose-300 border border-rose-800 rounded-lg text-xs font-bold uppercase">5 Locks Active</span>
+        `;
+      } else if (canDeclare) {
+        blazingBanner.innerHTML = `
+          <div class="text-xs text-slate-300">
+            <span class="font-bold text-amber-300">Blazing Week Undeclared:</span> Declare Week ${selectedWeek} to make all 5 picks LOCKs (worth ±2 each).
+          </div>
+          <button onclick="declareBlazingWeek(${selectedWeek})" class="px-3.5 py-1.5 bg-gradient-to-r from-amber-500 to-rose-600 text-white font-bold text-xs rounded-xl shadow-md transition">
+            Declare Week ${selectedWeek} as Blazing Week
+          </button>
+        `;
+      } else {
+        blazingBanner.innerHTML = `
+          <div class="text-xs text-slate-400">
+            Regular ATS Week: Select 4 standard picks (±1 win/loss) and 1 designated LOCK (±2 wins/losses).
+          </div>
+          <span class="text-xs text-slate-500 font-mono">1 Lock • 4 Regular</span>
+        `;
+      }
+
+      // Render week's games
+      const weekGames = appState.games.filter(g => g.week === selectedWeek);
+      const container = document.getElementById('matchups-container');
+
+      // Top banner if week is locked until Tuesday midnight ET
+      let topBannerHtml = '';
+      if (!isWeekUnlocked) {
+        topBannerHtml = `
+          <div class="bg-amber-950/40 border border-amber-800/80 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-amber-200 shadow-xl mb-4">
+            <div class="flex items-center space-x-3.5">
+              <div class="w-10 h-10 rounded-xl bg-amber-900/60 border border-amber-700/80 flex items-center justify-center text-amber-400 text-lg shrink-0">
+                <i class="fa-solid fa-lock"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-sm text-amber-300 flex items-center space-x-2">
+                  <span>Week ${selectedWeek} Opens Tuesday Midnight Eastern</span>
+                  <span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-amber-900 text-amber-300 border border-amber-700">Picks Locked</span>
+                </h4>
+                <p class="text-xs text-amber-400/80 mt-0.5">Spreads and weekly pick submissions unlock on <strong>${unlockFormatted}</strong>.</p>
+              </div>
+            </div>
+            <div class="text-xs font-mono text-amber-300 shrink-0 bg-slate-950/70 px-3 py-1.5 rounded-xl border border-slate-800 flex items-center space-x-1.5 self-start sm:self-auto">
+              <i class="fa-solid fa-clock text-amber-400 text-[10px]"></i>
+              <span>Opens: ${weekStatus.unlockFormatted || 'Tue 12:00 AM ET'}</span>
+            </div>
+          </div>
+        `;
+      }
+
+      container.innerHTML = topBannerHtml + weekGames.map(game => {
+        const isFeatured = game.id === weekCfg.featuredGameId;
+        const awayPicked = selectedPicks.some(p => p.gameId === game.id && p.pickedTeam === 'away');
+        const homePicked = selectedPicks.some(p => p.gameId === game.id && p.pickedTeam === 'home');
+        const pickObj = selectedPicks.find(p => p.gameId === game.id);
+        const isLock = pickObj && pickObj.isLock;
+        const hasStarted = Boolean(game.hasStarted || game.status === 'final' || game.status === 'in_progress');
+        const isPickDisabled = hasStarted || !isWeekUnlocked;
+
+        // League picks for this game
+        const gamePicks = appLeaguePicks.filter(p => p.gameId === game.id);
+        const awayPicks = gamePicks.filter(p => p.isRevealed && p.pickedTeam === 'away');
+        const homePicks = gamePicks.filter(p => p.isRevealed && p.pickedTeam === 'home');
+
+        return `
+          <div class="bg-slate-900 rounded-2xl border ${isLock || (pickObj && isUserBlazing) ? 'border-amber-500 ring-2 ring-amber-400/40 bg-gradient-to-br from-slate-900 via-amber-950/20 to-slate-900 shadow-xl shadow-amber-950/30' : (isFeatured ? 'border-amber-500/70 bg-gradient-to-r from-slate-900 to-amber-950/20' : 'border-slate-800')} p-3.5 shadow-xl transition space-y-3">
+            <div class="flex items-center justify-between text-[11px] text-slate-400">
+              <div class="flex items-center space-x-2">
+                ${isFeatured ? '<span class="px-1.5 py-0.5 rounded bg-amber-500 text-slate-950 font-black text-[9px] uppercase"><i class="fa-solid fa-star"></i> Featured Must-Pick</span>' : ''}
+                ${isLock || (pickObj && isUserBlazing) ? '<span class="px-2 py-0.5 rounded bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-black text-[9px] uppercase tracking-wider shadow flex items-center space-x-1"><i class="fa-solid fa-lock"></i><span>YOUR LOCK (±2)</span></span>' : ''}
+                <span>${new Date(game.kickoffTime).toLocaleString([], {weekday: 'short', month: 'numeric', day: 'numeric', hour: '2-digit', minute:'2-digit'})}</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                ${!isWeekUnlocked ? `
+                  <span class="px-2 py-0.5 rounded text-[9px] font-bold uppercase bg-amber-950/70 text-amber-400 border border-amber-800/80">
+                    <i class="fa-solid fa-lock text-[9px]"></i> Spreads Locked
+                  </span>
+                ` : (hasStarted ? `
+                  <span class="px-2 py-0.5 rounded text-[9px] font-bold uppercase bg-amber-950/90 text-amber-300 border border-amber-800/80">
+                    <i class="fa-solid fa-clock"></i> Kicked Off • Picks Visible
+                  </span>
+                ` : `
+                  <span class="px-2 py-0.5 rounded text-[9px] font-medium text-slate-500 bg-slate-800/80">
+                    🔒 Picks hidden until kickoff
+                  </span>
+                `)}
+                <span class="font-bold text-[10px] uppercase ${game.status === 'final' ? 'text-emerald-400' : (game.status === 'in_progress' ? 'text-amber-400 font-black animate-pulse' : 'text-slate-500')}">${!isWeekUnlocked ? 'UPCOMING' : game.status}</span>
+              </div>
+            </div>
+
+            <!-- Score board if live or final -->
+            ${(isWeekUnlocked && (game.status === 'final' || game.status === 'in_progress')) ? `
+              <div class="bg-slate-950/70 p-2 rounded-xl border border-slate-800/80 flex items-center justify-around text-xs font-bold text-slate-200">
+                <div class="flex items-center space-x-2">
+                  <span class="text-slate-300">${game.awayTeam.name}</span>
+                  <span class="text-base font-black text-amber-400 font-mono">${game.awayScore ?? 0}</span>
+                </div>
+                <div class="text-center">
+                  <span class="text-[10px] uppercase px-2 py-0.5 rounded ${game.status === 'final' ? 'bg-slate-800 text-slate-300 font-semibold' : 'bg-amber-950 text-amber-300 border border-amber-800 font-black animate-pulse'}">
+                    ${game.status === 'final' ? 'Final Score' : (game.liveClockDetail || 'Live')}
+                  </span>
+                  ${game.lastLiveSync ? '<div class="text-[9px] text-slate-500 font-mono mt-0.5">ESPN Live</div>' : ''}
+                </div>
+                <div class="flex items-center space-x-2">
+                  <span class="text-base font-black text-amber-400 font-mono">${game.homeScore ?? 0}</span>
+                  <span class="text-slate-300">${game.homeTeam.name}</span>
+                </div>
+              </div>
+            ` : ''}
+
+            <!-- Team Pick Buttons -->
+            <div class="grid grid-cols-2 gap-2">
+              <!-- Away -->
+              <button onclick="togglePick('${game.id}', 'away')" ${isPickDisabled ? `disabled title="${!isWeekUnlocked ? 'Spreads and picks unlock Tuesday midnight Eastern' : 'Game already kicked off'}"` : ''} class="p-3 sm:p-3.5 rounded-xl border text-left flex items-center justify-between transition touch-manipulation active:scale-[0.98] ${isPickDisabled ? 'opacity-80 cursor-not-allowed' : ''} ${awayPicked ? 'bg-rose-950/90 border-rose-600 text-white shadow-md ring-1 ring-rose-500/50' : 'bg-slate-850 border-slate-750 text-slate-200 hover:border-slate-600'}">
+                <div class="flex items-center space-x-2 min-w-0">
+                  <img src="${game.awayTeam.logo}" class="w-6 h-6 sm:w-7 sm:h-7 object-contain shrink-0" />
+                  <span class="font-bold text-xs sm:text-sm truncate">${game.awayTeam.name}</span>
+                </div>
+                ${isWeekUnlocked && game.awaySpread !== null ? `
+                  <span class="font-black text-xs sm:text-sm font-mono ml-2 shrink-0 ${game.awaySpread > 0 ? 'text-amber-400' : 'text-slate-300'}">${game.awaySpread > 0 ? '+' : ''}${game.awaySpread}</span>
+                ` : `
+                  <span class="text-[9px] sm:text-[10px] text-amber-400/90 font-mono italic shrink-0">Opens Tue 12 AM</span>
+                `}
+              </button>
+
+              <!-- Home -->
+              <button onclick="togglePick('${game.id}', 'home')" ${isPickDisabled ? `disabled title="${!isWeekUnlocked ? 'Spreads and picks unlock Tuesday midnight Eastern' : 'Game already kicked off'}"` : ''} class="p-3 sm:p-3.5 rounded-xl border text-left flex items-center justify-between transition touch-manipulation active:scale-[0.98] ${isPickDisabled ? 'opacity-80 cursor-not-allowed' : ''} ${homePicked ? 'bg-rose-950/90 border-rose-600 text-white shadow-md ring-1 ring-rose-500/50' : 'bg-slate-850 border-slate-750 text-slate-200 hover:border-slate-600'}">
+                <div class="flex items-center space-x-2 min-w-0">
+                  <img src="${game.homeTeam.logo}" class="w-6 h-6 sm:w-7 sm:h-7 object-contain shrink-0" />
+                  <span class="font-bold text-xs sm:text-sm truncate">${game.homeTeam.name}</span>
+                </div>
+                ${isWeekUnlocked && game.homeSpread !== null ? `
+                  <span class="font-black text-xs sm:text-sm font-mono ml-2 shrink-0 ${game.homeSpread > 0 ? 'text-amber-400' : 'text-slate-300'}">${game.homeSpread > 0 ? '+' : ''}${game.homeSpread}</span>
+                ` : `
+                  <span class="text-[9px] sm:text-[10px] text-amber-400/90 font-mono italic shrink-0">Opens Tue 12 AM</span>
+                `}
+              </button>
+            </div>
+
+            <!-- Lock of the Week Selector Bar (When game is picked) -->
+            ${pickObj && isWeekUnlocked && !hasStarted ? `
+              <div class="p-2.5 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-2 transition ${isLock || isUserBlazing ? 'bg-gradient-to-r from-amber-500/20 via-amber-950/40 to-slate-900 border-amber-500/80 shadow-md ring-1 ring-amber-400/30' : 'bg-slate-850/90 border-slate-750'}">
+                <div class="flex items-center space-x-2.5 min-w-0">
+                  <div class="w-7 h-7 rounded-lg ${isLock || isUserBlazing ? 'bg-amber-500 text-slate-950 ring-2 ring-amber-300' : 'bg-slate-800 text-slate-400'} flex items-center justify-center font-black text-xs shrink-0 shadow-sm">
+                    <i class="fa-solid ${isLock || isUserBlazing ? 'fa-lock' : 'fa-lock-open'}"></i>
+                  </div>
+                  <div class="min-w-0">
+                    <div class="text-xs font-bold ${isLock || isUserBlazing ? 'text-amber-300' : 'text-slate-200'} flex items-center space-x-1.5">
+                      <span>${isLock || isUserBlazing ? (isUserBlazing ? '🔥 Blazing Week Lock' : '🔒 Designated Lock of the Week') : 'Standard ATS Pick (±1 pt)'}</span>
+                      ${isLock || isUserBlazing ? '<span class="px-1.5 py-0.2 rounded text-[9px] font-black uppercase bg-amber-400 text-slate-950">±2 PTS</span>' : ''}
+                    </div>
+                    <p class="text-[10px] text-slate-400 truncate">${isLock || isUserBlazing ? 'Worth double: wins yield +2, losses deduct -2' : 'Double point value if designated as Lock'}</p>
+                  </div>
+                </div>
+
+                ${!isUserBlazing ? (isLock ? `
+                  <div class="flex items-center space-x-1.5 self-start sm:self-auto">
+                    <span class="px-3 py-1.5 rounded-lg text-xs font-black uppercase bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow flex items-center space-x-1.5">
+                      <i class="fa-solid fa-lock text-[10px]"></i>
+                      <span>Lock of the Week</span>
+                    </span>
+                  </div>
+                ` : `
+                  <button onclick="event.stopPropagation(); setLockForGame('${game.id}')" class="px-3 py-1.5 rounded-lg text-xs font-black uppercase transition bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-slate-950 border border-amber-500/60 hover:border-amber-400 flex items-center space-x-1.5 shadow-sm active:scale-95 touch-manipulation self-start sm:self-auto" title="Make this pick your Lock of the Week (worth ±2 wins/losses)">
+                    <i class="fa-solid fa-lock text-[10px]"></i>
+                    <span>Make Lock of the Week (±2)</span>
+                  </button>
+                `) : `
+                  <span class="px-2.5 py-1 rounded-lg text-[10px] font-black uppercase bg-rose-950 text-rose-300 border border-rose-800 self-start sm:self-auto">
+                    5/5 Blazing Locks
+                  </span>
+                `}
+              </div>
+            ` : ''}
+
+            <!-- League Member Picks for this Game -->
+            ${!isWeekUnlocked ? `
+              <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
+                <div class="flex items-center space-x-1.5">
+                  <i class="fa-solid fa-lock text-[10px] text-amber-400"></i>
+                  <span>Spreads and picks unlock Tuesday midnight Eastern (${weekStatus.unlockFormatted || 'Tue 12:00 AM ET'})</span>
+                </div>
+                <span class="text-[10px] text-amber-500 font-mono uppercase font-bold">Upcoming Week</span>
+              </div>
+            ` : (hasStarted ? `
+              <div class="pt-2 border-t border-slate-800 text-[11px] space-y-1.5">
+                <div class="flex items-center justify-between text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                  <span>League Selections (${gamePicks.length} picks)</span>
+                  <span class="text-amber-400 font-medium lowercase">kicked off</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-[11px]">
+                  <!-- Away selections -->
+                  <div class="bg-slate-850/80 p-2 rounded-lg border border-slate-800/80">
+                    <div class="font-bold text-[10px] text-slate-400 mb-1 truncate">${game.awayTeam.name} (${game.awaySpread > 0 ? '+' : ''}${game.awaySpread}):</div>
+                    ${awayPicks.length > 0 ? awayPicks.map(p => `
+                      <span class="inline-flex items-center space-x-1 bg-slate-800 px-1.5 py-0.5 rounded text-[10px] mr-1 mb-1 border ${p.isLock ? 'border-amber-500 text-amber-300 font-bold' : 'border-slate-700 text-slate-300'}">
+                        <img src="${p.userAvatar}" class="w-3.5 h-3.5 rounded-full" />
+                        <span>${p.userName.split(' ')[0]}</span>
+                        ${p.isLock ? '<span class="text-amber-400">🔒</span>' : ''}
+                      </span>
+                    `).join('') : '<span class="text-slate-600 italic text-[10px]">No picks</span>'}
+                  </div>
+                  <!-- Home selections -->
+                  <div class="bg-slate-850/80 p-2 rounded-lg border border-slate-800/80">
+                    <div class="font-bold text-[10px] text-slate-400 mb-1 truncate">${game.homeTeam.name} (${game.homeSpread > 0 ? '+' : ''}${game.homeSpread}):</div>
+                    ${homePicks.length > 0 ? homePicks.map(p => `
+                      <span class="inline-flex items-center space-x-1 bg-slate-800 px-1.5 py-0.5 rounded text-[10px] mr-1 mb-1 border ${p.isLock ? 'border-amber-500 text-amber-300 font-bold' : 'border-slate-700 text-slate-300'}">
+                        <img src="${p.userAvatar}" class="w-3.5 h-3.5 rounded-full" />
+                        <span>${p.userName.split(' ')[0]}</span>
+                        ${p.isLock ? '<span class="text-amber-400">🔒</span>' : ''}
+                      </span>
+                    `).join('') : '<span class="text-slate-600 italic text-[10px]">No picks</span>'}
+                  </div>
+                </div>
+              </div>
+            ` : `
+              <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-500">
+                <div class="flex items-center space-x-1.5">
+                  <i class="fa-solid fa-lock text-[10px] text-amber-400"></i>
+                  <span>Other members' picks hidden until kickoff</span>
+                </div>
+                <span class="text-[10px] text-slate-400 font-mono">${gamePicks.length} player(s) picked</span>
+              </div>
+            `)}
+          </div>
+        `;
+      }).join('');
+
+      renderBetSlip();
+    }
+
+    async function selectWeek(w) {
+      selectedWeek = w;
+      await fetchLeaguePicksForWeek(w);
+
+      // Preload user's existing picks for this week
+      const existing = appState.picks.filter(p => p.userId === currentUserId && p.week === selectedWeek);
+      selectedPicks = existing.map(p => ({
+        gameId: p.gameId,
+        pickedTeam: p.pickedTeam,
+        isLock: p.isLock
+      }));
+      renderPicksTab();
+    }
+
+    function togglePick(gameId, pickedTeam) {
+      const weekStatus = (appState.weekStatuses && appState.weekStatuses[selectedWeek]) || {};
+      if (weekStatus.isUnlocked === false) {
+        notify('error', `Week ${selectedWeek} picks and spreads unlock Tuesday midnight Eastern (${weekStatus.fullFormatted || 'Tuesday 12:00 AM ET'}).`);
+        return;
+      }
+
+      const game = appState.games.find(g => g.id === gameId);
+      if (game && (game.hasStarted || game.status === 'final' || game.status === 'in_progress')) {
+        notify('error', 'Cannot change picks for this game: it has already kicked off!');
+        return;
+      }
+
+      const idx = selectedPicks.findIndex(p => p.gameId === gameId);
+      if (idx >= 0) {
+        if (selectedPicks[idx].pickedTeam === pickedTeam) {
+          const removedWasLock = selectedPicks[idx].isLock;
+          selectedPicks.splice(idx, 1);
+          // If the removed pick was the designated lock, transfer lock to another remaining pick
+          if (removedWasLock && selectedPicks.length > 0) {
+            selectedPicks[0].isLock = true;
+          }
+        } else {
+          selectedPicks[idx].pickedTeam = pickedTeam;
+        }
+      } else {
+        if (selectedPicks.length >= 5) {
+          notify('error', 'You can only pick 5 games against the spread.');
+          return;
+        }
+        const hasLock = selectedPicks.some(p => p.isLock);
+        selectedPicks.push({
+          gameId,
+          pickedTeam,
+          isLock: !hasLock
+        });
+      }
+      renderPicksTab();
+    }
+
+    // Modal: All Member Picks Matrix
+    async function openLeaguePicksModal() {
+      await fetchLeaguePicksForWeek(selectedWeek);
+      document.getElementById('league-picks-modal-subtitle').innerText = `Week ${selectedWeek} League Picks Matrix`;
+      const content = document.getElementById('league-picks-modal-content');
+
+      // Group picks by user
+      const users = appState.users;
+      content.innerHTML = users.map(u => {
+        const uPicks = appLeaguePicks.filter(p => p.userId === u.id);
+        const isViewer = u.id === currentUserId;
+        const isBlazing = u.blazingWeekUsed === selectedWeek;
+
+        return `
+          <div class="bg-slate-850 p-4 rounded-2xl border ${isViewer ? 'border-rose-500/70 bg-gradient-to-r from-slate-850 to-rose-950/20' : 'border-slate-800'} space-y-3 shadow-lg">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+              <div class="flex items-center space-x-2.5">
+                <img src="${u.avatar}" class="w-8 h-8 rounded-full border border-slate-700" />
+                <div>
+                  <div class="flex items-center space-x-2">
+                    <span class="font-bold text-sm text-slate-100">${u.name}</span>
+                    ${isViewer ? '<span class="px-1.5 py-0.5 rounded text-[9px] font-black uppercase bg-rose-600 text-white">YOU</span>' : ''}
+                    ${isBlazing ? '<span class="px-1.5 py-0.5 rounded text-[9px] font-black uppercase bg-rose-950 text-rose-300 border border-rose-800">🔥 Blazing Week</span>' : ''}
+                  </div>
+                  <span class="text-[10px] text-slate-400 font-mono">${uPicks.length}/5 picks submitted</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Picks list -->
+            ${uPicks.length === 0 ? `
+              <div class="text-xs text-slate-500 italic py-2">No picks submitted yet for Week ${selectedWeek}.</div>
+            ` : `
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+                ${uPicks.map((p, pIdx) => {
+                  const revealed = p.isRevealed;
+                  const isWin = p.result === 'win';
+                  const isLoss = p.result === 'loss';
+                  const isPush = p.result === 'push';
+
+                  return `
+                    <div class="p-2.5 rounded-xl border text-xs flex flex-col justify-between space-y-1.5 transition ${revealed ? (isWin ? 'bg-emerald-950/40 border-emerald-700/80 text-emerald-200' : (isLoss ? 'bg-rose-950/40 border-rose-700/80 text-rose-200' : 'bg-slate-900 border-slate-750 text-slate-200')) : 'bg-slate-900/60 border-slate-800 text-slate-500'}">
+                      <div class="flex items-center justify-between text-[10px]">
+                        ${revealed ? `
+                          <span class="font-bold uppercase truncate">${p.awayTeam.split(' ').pop()} @ ${p.homeTeam.split(' ').pop()}</span>
+                          <span class="${p.gameStarted ? 'text-amber-400 font-bold' : 'text-slate-500'}">${p.gameStatus}</span>
+                        ` : `
+                          <span class="font-bold uppercase text-slate-500">Pick #${pIdx + 1}</span>
+                          <span class="text-slate-500 font-mono text-[9px] bg-slate-800 px-1.5 py-0.5 rounded">🔒 Kickoff Pending</span>
+                        `}
+                      </div>
+
+                      <div class="font-bold text-xs min-h-[32px] flex items-center">
+                        ${revealed ? `
+                          <div class="flex items-center space-x-1.5">
+                            <span class="font-bold ${isWin ? 'text-emerald-300' : (isLoss ? 'text-rose-300' : 'text-slate-100')}">${p.pickedTeamName}</span>
+                            <span class="font-mono text-amber-400">${p.lockedSpread > 0 ? '+' : ''}${p.lockedSpread}</span>
+                          </div>
+                        ` : `
+                          <div class="flex items-center space-x-1.5 text-slate-500 italic">
+                            <i class="fa-solid fa-lock text-[10px] text-amber-400"></i>
+                            <span>Hidden until kickoff</span>
+                          </div>
+                        `}
+                      </div>
+
+                      <div class="flex items-center justify-between pt-1 border-t border-slate-800/60 text-[10px]">
+                        ${revealed ? `
+                          <span>${p.isLock ? '<strong class="text-amber-400">🔒 LOCK (±2)</strong>' : 'ATS (±1)'}</span>
+                          ${isWin ? '<span class="font-black text-emerald-400">WIN ✓</span>' : (isLoss ? '<span class="font-black text-rose-400">LOSS ✗</span>' : (isPush ? '<span class="text-amber-400">PUSH</span>' : '<span class="text-slate-400">Pending</span>'))}
+                        ` : `
+                          <span class="text-slate-600">Selection: Locked</span>
+                          <span class="text-slate-600">Pending Kickoff</span>
+                        `}
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            `}
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('modal-league-picks').classList.remove('hidden');
+    }
+
+    function closeLeaguePicksModal() {
+      document.getElementById('modal-league-picks').classList.add('hidden');
+    }
+
+    function setLockForGame(gameId) {
+      const user = appState.users.find(u => u.id === currentUserId);
+      const isUserBlazing = user && (user.blazingWeekUsed === selectedWeek || (selectedWeek === 18 && user.blazingWeekUsed === null));
+      if (isUserBlazing) {
+        notify('info', '🔥 All 5 picks are Locks during your Blazing Week (±2 each)!');
+        return;
+      }
+
+      const pick = selectedPicks.find(p => p.gameId === gameId);
+      if (!pick) {
+        notify('info', 'Please pick a team for this game first before designating it as your Lock.');
+        return;
+      }
+
+      selectedPicks.forEach(p => {
+        p.isLock = (p.gameId === gameId);
+      });
+
+      const game = appState.games.find(g => g.id === gameId);
+      const team = game ? (pick.pickedTeam === 'home' ? game.homeTeam : game.awayTeam) : null;
+      const teamName = team ? team.name : 'Selection';
+
+      notify('success', `🔒 ${teamName} is now your Lock of the Week (±2 points)!`);
+      renderPicksTab();
+    }
+
+    function toggleLock(gameId) {
+      setLockForGame(gameId);
+    }
+
+    function renderBetSlip() {
+      const list = document.getElementById('slip-picks-list');
+      const weekCfg = appState.weeklyConfigs[selectedWeek] || {};
+      const user = appState.users.find(u => u.id === currentUserId);
+      const isUserBlazing = user && (user.blazingWeekUsed === selectedWeek || (selectedWeek === 18 && user.blazingWeekUsed === null));
+      const weekStatus = (appState.weekStatuses && appState.weekStatuses[selectedWeek]) || {};
+      const isWeekUnlocked = weekStatus.isUnlocked !== false;
+      const unlockFormatted = weekStatus.fullFormatted || weekStatus.unlockFormatted || 'Tuesday midnight ET';
+
+      // Desktop slip badges
+      document.getElementById('slip-count-badge').innerText = `${selectedPicks.length}/5 Selected`;
+
+      // Mobile slip badges & floating indicator
+      const mobBadge = document.getElementById('mob-slip-badge');
+      if (mobBadge) mobBadge.innerText = selectedPicks.length;
+      const mobCountBadge = document.getElementById('mob-slip-count-badge');
+      if (mobCountBadge) mobCountBadge.innerText = `${selectedPicks.length}/5 Selected`;
+
+      let innerHtml = '';
+      if (!isWeekUnlocked) {
+        innerHtml = `
+          <div class="p-3 bg-amber-950/40 border border-amber-800/80 rounded-xl text-amber-300 text-xs space-y-1.5 my-2">
+            <div class="font-bold flex items-center space-x-1.5 text-amber-300">
+              <i class="fa-solid fa-lock"></i>
+              <span>Week ${selectedWeek} Picks Locked</span>
+            </div>
+            <p class="text-[11px] text-amber-400/80 leading-relaxed">Official spreads and pick submissions unlock on <strong>${unlockFormatted}</strong>. Check back once the week begins!</p>
+          </div>
+        `;
+      } else if (selectedPicks.length === 0) {
+        innerHtml = `<div class="text-slate-500 italic py-6 text-center">No games selected yet. Tap teams on the left to pick against the spread.</div>`;
+      } else {
+        const lockCount = selectedPicks.filter(p => p.isLock).length;
+        const lockGuideBanner = `
+          <div class="p-2.5 bg-slate-950/80 border border-slate-800 rounded-xl flex items-center justify-between text-[11px] mb-2 shadow-inner">
+            <div class="flex items-center space-x-1.5 text-slate-300">
+              <i class="fa-solid fa-lock text-amber-400"></i>
+              <span class="font-semibold">Lock of the Week:</span>
+            </div>
+            <span class="${isUserBlazing ? 'text-rose-400 font-bold' : (lockCount === 1 ? 'text-amber-400 font-black' : 'text-rose-400 font-bold')}">
+              ${isUserBlazing ? '🔥 5/5 Blazing Locks' : (lockCount === 1 ? '1/1 Lock Set (±2) ✓' : 'Tap "Make Lock" on 1 pick')}
+            </span>
+          </div>
+        `;
+
+        innerHtml = lockGuideBanner + selectedPicks.map(p => {
+          const game = appState.games.find(g => g.id === p.gameId);
+          if (!game) return '';
+          const team = p.pickedTeam === 'home' ? game.homeTeam : game.awayTeam;
+          const spread = p.pickedTeam === 'home' ? game.homeSpread : game.awaySpread;
+          const isFeat = game.id === weekCfg.featuredGameId;
+          const isThisLock = p.isLock || isUserBlazing;
+
+          return `
+            <div class="bg-slate-850 p-2.5 rounded-xl border ${isThisLock ? 'border-amber-500/80 bg-gradient-to-r from-slate-850 via-slate-850 to-amber-950/20 shadow-md ring-1 ring-amber-400/30' : 'border-slate-750'} flex items-center justify-between gap-2 transition">
+              <div class="min-w-0">
+                <div class="font-bold text-slate-100 truncate flex items-center space-x-1.5">
+                  <span class="truncate">${team.name}</span>
+                  <span class="text-amber-400 font-mono shrink-0">${spread > 0 ? '+' : ''}${spread}</span>
+                </div>
+                <div class="text-[10px] ${isThisLock ? 'text-amber-300 font-bold' : 'text-slate-400'} flex items-center space-x-1">
+                  ${isThisLock ? '<i class="fa-solid fa-lock text-[9px] text-amber-400"></i><span>Lock (±2 pts)</span>' : '<span>Regular ATS Pick (±1 pt)</span>'}
+                  ${isFeat ? '<span class="text-amber-400">• Must-Pick</span>' : ''}
+                </div>
+              </div>
+              <div class="flex items-center space-x-1.5 shrink-0">
+                <button onclick="setLockForGame('${p.gameId}')" class="px-2.5 py-1.5 rounded-lg text-[10px] font-black uppercase transition touch-manipulation flex items-center space-x-1 ${isThisLock ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 shadow-md ring-1 ring-amber-300' : 'bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-amber-300 border border-amber-500/40 hover:border-amber-400 active:scale-95'}" title="${isThisLock ? 'This is your designated Lock of the Week (±2 points)' : 'Click to make this pick your Lock of the Week (±2 points)'}">
+                  <i class="fa-solid ${isThisLock ? 'fa-lock' : 'fa-lock-open'} text-[9px]"></i>
+                  <span>${isThisLock ? 'LOCK (±2)' : 'Make Lock'}</span>
+                </button>
+                <button onclick="togglePick('${p.gameId}', '${p.pickedTeam}')" class="text-slate-500 hover:text-rose-400 p-1 touch-manipulation text-base leading-none" title="Remove Pick">&times;</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      list.innerHTML = innerHtml;
+      const mobList = document.getElementById('mob-slip-picks-list');
+      if (mobList) mobList.innerHTML = innerHtml;
+
+      // Validations
+      const hasFeatured = !weekCfg.featuredGameId || selectedPicks.some(p => p.gameId === weekCfg.featuredGameId);
+      const mustPickStatus = document.getElementById('slip-must-pick-status');
+      const mobMustPickStatus = document.getElementById('mob-slip-must-pick-status');
+      const mustPickText = hasFeatured ? 'Included ✓' : 'Missing ✗';
+      const mustPickClass = hasFeatured ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold';
+      if (mustPickStatus) {
+        mustPickStatus.innerText = mustPickText;
+        mustPickStatus.className = mustPickClass;
+      }
+      if (mobMustPickStatus) {
+        mobMustPickStatus.innerText = mustPickText;
+        mobMustPickStatus.className = mustPickClass;
+      }
+
+      const lockCount = selectedPicks.filter(p => p.isLock).length;
+      const lockStatus = document.getElementById('slip-lock-status');
+      const mobLockStatus = document.getElementById('mob-slip-lock-status');
+      let lockText = '';
+      let lockClass = '';
+      if (isUserBlazing) {
+        lockText = '🔥 5/5 Locks (Blazing)';
+        lockClass = 'text-rose-400 font-bold';
+      } else if (lockCount === 1) {
+        lockText = '1/1 Lock Set ✓';
+        lockClass = 'text-emerald-400 font-bold';
+      } else {
+        lockText = '1 Lock Required';
+        lockClass = 'text-amber-400 font-bold';
+      }
+      if (lockStatus) {
+        lockStatus.innerText = lockText;
+        lockStatus.className = lockClass;
+      }
+      if (mobLockStatus) {
+        mobLockStatus.innerText = lockText;
+        mobLockStatus.className = lockClass;
+      }
+
+      const btn = document.getElementById('btn-submit-picks');
+      const mobBtn = document.getElementById('mob-btn-submit-picks');
+      if (!isWeekUnlocked) {
+        const disabledText = 'Week Unlocks Tuesday Midnight ET';
+        const disabledClass = 'w-full py-3 rounded-xl font-black text-xs uppercase tracking-wider bg-slate-800 text-slate-500 cursor-not-allowed shadow-none';
+        if (btn) {
+          btn.disabled = true;
+          btn.innerText = disabledText;
+          btn.className = disabledClass;
+        }
+        if (mobBtn) {
+          mobBtn.disabled = true;
+          mobBtn.innerText = disabledText;
+          mobBtn.className = disabledClass;
+        }
+      } else {
+        const canSubmit = selectedPicks.length === 5 && hasFeatured && (isUserBlazing || lockCount === 1);
+        const submitText = canSubmit ? 'Lock In 5 Picks' : 'Select 5 Picks to Submit';
+        const submitClass = canSubmit ? 'w-full py-3 rounded-xl font-black text-xs uppercase tracking-wider bg-gradient-to-r from-rose-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 text-white shadow-lg transition' : 'w-full py-3 rounded-xl font-black text-xs uppercase tracking-wider bg-slate-800 text-slate-500 cursor-not-allowed';
+        if (btn) {
+          btn.disabled = !canSubmit;
+          btn.innerText = submitText;
+          btn.className = submitClass;
+        }
+        if (mobBtn) {
+          mobBtn.disabled = !canSubmit;
+          mobBtn.innerText = submitText;
+          mobBtn.className = submitClass;
+        }
+      }
+    }
+
+    async function submitPicks() {
+      try {
+        const weekStatus = (appState.weekStatuses && appState.weekStatuses[selectedWeek]) || {};
+        if (weekStatus.isUnlocked === false) {
+          notify('error', `Cannot submit picks: Week ${selectedWeek} is locked until Tuesday midnight Eastern.`);
+          return;
+        }
+
+        const user = appState.users.find(u => u.id === currentUserId);
+        const isUserBlazing = user && (user.blazingWeekUsed === selectedWeek || (selectedWeek === 18 && user.blazingWeekUsed === null));
+
+        const res = await fetch('/api/picks/submit', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            userId: currentUserId,
+            week: selectedWeek,
+            picks: selectedPicks,
+            isBlazingWeek: isUserBlazing
+          })
+        });
+        const data = await res.json();
+        if (data.success) {
+          notify('success', data.message || '5 picks locked in!');
+          await loadLeagueData();
+        } else {
+          notify('error', data.error || 'Failed to submit picks');
+        }
+      } catch (err) {
+        notify('error', err.message);
+      }
+    }
+
+    async function declareBlazingWeek(w) {
+      try {
+        const res = await fetch('/api/users/blazing-week', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ userId: currentUserId, week: w })
+        });
+        const data = await res.json();
+        if (data.success) {
+          notify('success', data.message);
+          await loadLeagueData();
+        } else {
+          notify('error', data.error);
+        }
+      } catch (err) {
+        notify('error', err.message);
+      }
+    }
+
+    // --- Standings Tab ---
+    function renderStandingsTab() {
+      const totalPlayers = appState.users.length;
+      let pot = totalPlayers * 25;
+      for (const item of appState.ledger) {
+        if (item.type === 'PERFECT_6_0_BONUS' || item.type === 'SEASON_OU_6_0') pot -= Math.abs(item.amount);
+        if (item.type === 'AWFUL_0_6_PENALTY' || item.type === 'SEASON_OU_0_6') pot += Math.abs(item.amount);
+      }
+      const netPot = Math.max(0, pot);
+      document.getElementById('pot-total-number').innerText = `$${netPot}`;
+      document.getElementById('pot-first-number').innerText = `$${Math.round(netPot * 0.5)}`;
+
+      const tbody = document.getElementById('standings-table-body');
+      tbody.innerHTML = appStandings.map(s => `
+        <tr class="hover:bg-slate-850/50 transition">
+          <td class="py-3 px-4 font-black ${s.rank === 1 ? 'text-amber-400' : 'text-slate-400'}">#${s.rank}</td>
+          <td class="py-3 px-4 flex items-center space-x-2">
+            <img src="${s.avatar}" class="w-6 h-6 rounded-full" />
+            <span class="text-slate-200 font-bold">${s.userName}</span>
+          </td>
+          <td class="py-3 px-4 font-mono font-bold">${s.wins}-${s.losses}-${s.pushes}</td>
+          <td class="py-3 px-4 text-amber-400 font-mono">${s.lockWins}-${s.lockLosses}</td>
+          <td class="py-3 px-4 text-slate-400 font-mono">${s.seasonOUWins}-${s.seasonOULosses}</td>
+          <td class="py-3 px-4">
+            ${s.blazingWeekUsed ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-950 text-rose-300 border border-rose-800">W${s.blazingWeekUsed}</span>` : '<span class="text-slate-500">W18 (Def)</span>'}
+          </td>
+          <td class="py-3 px-4 text-right font-black text-sm text-white">${s.points > 0 ? '+' : ''}${s.points}</td>
+          <td class="py-3 px-4 text-right font-black text-emerald-400">$${s.projectedPayout}</td>
+        </tr>
+      `).join('');
+
+      // Mobile responsive cards for standings
+      const mobCards = document.getElementById('standings-mobile-cards');
+      if (mobCards) {
+        mobCards.innerHTML = appStandings.map(s => {
+          const isUser = s.userId === currentUserId;
+          return `
+            <div class="bg-slate-900 rounded-2xl border ${isUser ? 'border-rose-500/80 bg-gradient-to-r from-slate-900 to-rose-950/20' : 'border-slate-800'} p-3.5 space-y-2.5 shadow-md">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2.5">
+                  <div class="w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs ${s.rank === 1 ? 'bg-amber-500 text-slate-950 shadow-md' : 'bg-slate-800 text-slate-300'}">
+                    #${s.rank}
+                  </div>
+                  <img src="${s.avatar}" class="w-8 h-8 rounded-full border border-slate-700" />
+                  <div>
+                    <div class="flex items-center space-x-1.5">
+                      <span class="font-bold text-sm text-slate-100">${s.userName}</span>
+                      ${isUser ? '<span class="px-1.5 py-0.2 rounded text-[9px] font-black uppercase bg-rose-600 text-white">YOU</span>' : ''}
+                    </div>
+                    <span class="text-[10px] text-slate-400 font-mono">${s.blazingWeekUsed ? `🔥 Blazing W${s.blazingWeekUsed}` : 'Blazing: W18 (Def)'}</span>
+                  </div>
+                </div>
+                <div class="text-right">
+                  <div class="font-black text-base ${s.points > 0 ? 'text-amber-400' : 'text-slate-200'} font-mono">${s.points > 0 ? '+' : ''}${s.points} PTS</div>
+                  <div class="text-xs font-bold text-emerald-400">$${s.projectedPayout} prize</div>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-1.5 pt-2 border-t border-slate-800 text-center text-[10px]">
+                <div class="bg-slate-850 p-1.5 rounded-lg border border-slate-800/80">
+                  <div class="text-slate-400 font-medium">Record</div>
+                  <div class="font-bold text-slate-200 font-mono">${s.wins}-${s.losses}-${s.pushes}</div>
+                </div>
+                <div class="bg-slate-850 p-1.5 rounded-lg border border-slate-800/80">
+                  <div class="text-slate-400 font-medium">Locks (±2)</div>
+                  <div class="font-bold text-amber-400 font-mono">${s.lockWins}-${s.lockLosses}</div>
+                </div>
+                <div class="bg-slate-850 p-1.5 rounded-lg border border-slate-800/80">
+                  <div class="text-slate-400 font-medium">Season O/U</div>
+                  <div class="font-bold text-slate-300 font-mono">${s.seasonOUWins}-${s.seasonOULosses}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    }
+
+    // --- Season O/U Tab ---
+    async function renderSeasonOUTab() {
+      const isLocked = appState.seasonOULocked;
+      const pill = document.getElementById('season-ou-status-pill');
+      if (isLocked) {
+        pill.className = "px-3 py-1.5 rounded-xl border text-xs font-bold bg-rose-950 text-rose-300 border-rose-800";
+        pill.innerText = "🔒 Locked (Submissions Closed)";
+      } else {
+        pill.className = "px-3 py-1.5 rounded-xl border text-xs font-bold bg-emerald-950 text-emerald-300 border-emerald-800";
+        pill.innerText = "🟢 Open for Pre-Season Picks";
+      }
+
+      // Fetch and display all league members' season O/U selections
+      try {
+        const res = await fetch('/api/season-ou/summary');
+        const data = await res.json();
+        if (data.success && data.users) {
+          const membersCont = document.getElementById('season-ou-members-container');
+          membersCont.innerHTML = data.users.map(u => {
+            const isViewer = u.userId === currentUserId;
+            return `
+              <div class="bg-slate-850 p-4 rounded-2xl border ${isViewer ? 'border-cyan-500/70 bg-gradient-to-r from-slate-850 to-cyan-950/20' : 'border-slate-800'} space-y-3 shadow-lg">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                  <div class="flex items-center space-x-2.5">
+                    <img src="${u.userAvatar}" class="w-8 h-8 rounded-full border border-slate-700" />
+                    <div>
+                      <div class="flex items-center space-x-2">
+                        <span class="font-bold text-sm text-slate-100">${u.userName}</span>
+                        ${isViewer ? '<span class="px-1.5 py-0.5 rounded text-[9px] font-black uppercase bg-cyan-600 text-white">YOU</span>' : ''}
+                      </div>
+                      <span class="text-[10px] text-slate-400 font-mono">${u.picks.length}/5 Picks Submitted</span>
+                    </div>
+                  </div>
+                  <div class="text-right">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-800 text-slate-300 border border-slate-700">
+                      ${u.wins}W - ${u.losses}L
+                    </span>
+                  </div>
+                </div>
+
+                <!-- 5 Teams -->
+                <div class="space-y-1.5">
+                  ${u.picks.map(p => {
+                    const isOver = p.selection === 'OVER';
+                    const isWin = p.result === 'win';
+                    const isLoss = p.result === 'loss';
+                    return `
+                      <div class="bg-slate-900 p-2 rounded-xl border border-slate-800 flex items-center justify-between text-xs">
+                        <div class="flex items-center space-x-2 min-w-0">
+                          <img src="${p.teamLogo}" class="w-5 h-5 object-contain shrink-0" />
+                          <div class="truncate">
+                            <span class="font-bold text-slate-200">${p.teamName}</span>
+                            <span class="text-[10px] text-slate-400 font-mono ml-1">(${p.currentWins}-${p.currentLosses})</span>
+                          </div>
+                        </div>
+                        <div class="flex items-center space-x-1.5 shrink-0">
+                          <span class="px-1.5 py-0.5 rounded text-[10px] font-black ${isOver ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'bg-rose-950 text-rose-300 border border-rose-800'}">
+                            ${p.selection} ${p.line}
+                          </span>
+                          ${p.isLock ? '<span class="text-amber-400 text-xs font-black" title="Lock Pick (±2 wins/losses)">🔒 LOCK</span>' : ''}
+                          <span class="text-[10px] font-bold font-mono ${isWin ? 'text-emerald-400' : (isLoss ? 'text-rose-400' : 'text-slate-500')}">
+                            ${isWin ? 'WIN' : (isLoss ? 'LOSS' : 'LIVE')}
+                          </span>
+                        </div>
+                      </div>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+      } catch (err) {
+        console.warn('Failed to load season O/U summary:', err);
+      }
+
+      // 32 Teams Grid
+      const container = document.getElementById('season-teams-container');
+      container.innerHTML = appState.seasonTeams.map(t => `
+        <div class="bg-slate-850 p-3 rounded-xl border border-slate-800 flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <img src="${t.logo}" class="w-7 h-7 object-contain" />
+            <div>
+              <div class="font-bold text-xs text-slate-200">${t.teamName}</div>
+              <div class="text-[10px] text-slate-400">${t.currentWins}-${t.currentLosses} Record</div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="text-xs font-black text-amber-400 font-mono">${t.winTotalLine} Wins</div>
+            <div class="text-[10px] text-slate-500 uppercase font-semibold">Vegas Total</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // --- Admin Tab ---
+    async function renderAdminTab() {
+      // 1. Fetch & Render Commissioner Running Ledger
+      try {
+        const res = await fetch('/api/finances');
+        const finData = await res.json();
+        if (finData.success) {
+          const kpis = document.getElementById('admin-finances-kpis');
+          kpis.innerHTML = `
+            <div class="bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 text-right">
+              <div class="text-[9px] font-bold uppercase text-slate-400">Total Buy-Ins</div>
+              <div class="text-xs font-black text-slate-200 font-mono">$${finData.totalInitialPot}</div>
+            </div>
+            <div class="bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 text-right">
+              <div class="text-[9px] font-bold uppercase text-slate-400">Collected</div>
+              <div class="text-xs font-black text-emerald-400 font-mono">$${finData.totalBuyInsCollected}</div>
+            </div>
+            <div class="bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 text-right">
+              <div class="text-[9px] font-bold uppercase text-slate-400">Active Pot</div>
+              <div class="text-xs font-black text-amber-400 font-mono">$${finData.currentNetPot}</div>
+            </div>
+          `;
+
+          const tableBody = document.getElementById('admin-finances-table-body');
+          tableBody.innerHTML = finData.players.map(p => {
+            const isProfit = p.netProfitLoss > 0;
+            const isLoss = p.netProfitLoss < 0;
+            return `
+              <tr class="hover:bg-slate-850/50 transition">
+                <td class="py-2.5 px-3 flex items-center space-x-2">
+                  <span class="font-bold ${p.rank === 1 ? 'text-amber-400' : 'text-slate-500'}">#${p.rank}</span>
+                  <img src="${p.avatar}" class="w-6 h-6 rounded-full border border-slate-700" />
+                  <span class="font-bold text-slate-200">${p.name}</span>
+                </td>
+                <td class="py-2.5 px-3 font-mono text-slate-300 font-semibold">$${p.buyIn}</td>
+                <td class="py-2.5 px-3 font-mono font-bold ${p.bounties > 0 ? 'text-emerald-400' : 'text-slate-500'}">
+                  ${p.bounties > 0 ? `+$${p.bounties}` : '$0'}
+                </td>
+                <td class="py-2.5 px-3 font-mono font-bold ${p.penalties > 0 ? 'text-rose-400' : 'text-slate-500'}">
+                  ${p.penalties > 0 ? `-$${p.penalties}` : '$0'}
+                </td>
+                <td class="py-2.5 px-3 font-mono font-bold text-amber-300">
+                  $${p.projectedPayout}
+                </td>
+                <td class="py-2.5 px-3 font-mono font-black text-slate-100 text-sm">
+                  $${p.runningValue}
+                </td>
+                <td class="py-2.5 px-3 text-right font-mono font-black text-sm ${isProfit ? 'text-emerald-400' : (isLoss ? 'text-rose-400' : 'text-slate-400')}">
+                  ${p.netProfitLoss > 0 ? '+' : ''}$${p.netProfitLoss}
+                </td>
+                <td class="py-2.5 px-3 text-center">
+                  <button onclick="adminToggleBuyInPaid('${p.userId}', ${p.buyInPaid})" class="px-2.5 py-1 rounded-lg text-[10px] font-bold transition ${p.buyInPaid ? 'bg-emerald-950 text-emerald-300 border border-emerald-700 hover:bg-emerald-900' : 'bg-rose-950 text-rose-300 border border-rose-700 hover:bg-rose-900'}">
+                    ${p.buyInPaid ? '✓ Paid' : '✗ Unpaid'}
+                  </button>
+                </td>
+              </tr>
+            `;
+          }).join('');
+
+          // Populate mobile finances cards
+          const mobFinCards = document.getElementById('admin-finances-mobile-cards');
+          if (mobFinCards) {
+            mobFinCards.innerHTML = finData.players.map(p => {
+              const isProfit = p.netProfitLoss > 0;
+              const isLoss = p.netProfitLoss < 0;
+              return `
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2 text-xs">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-2">
+                      <span class="font-black ${p.rank === 1 ? 'text-amber-400' : 'text-slate-400'}">#${p.rank}</span>
+                      <img src="${p.avatar}" class="w-6 h-6 rounded-full" />
+                      <span class="font-bold text-slate-200">${p.name}</span>
+                    </div>
+                    <button onclick="adminToggleBuyInPaid('${p.userId}', ${p.buyInPaid})" class="px-2 py-0.5 rounded text-[10px] font-bold ${p.buyInPaid ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'bg-rose-950 text-rose-300 border border-rose-800'}">
+                      ${p.buyInPaid ? 'Paid' : 'Unpaid'}
+                    </button>
+                  </div>
+                  <div class="grid grid-cols-3 gap-1 bg-slate-900/80 p-2 rounded-lg text-center text-[10px]">
+                    <div>
+                      <div class="text-slate-400">Prize Share</div>
+                      <div class="font-bold text-amber-300 font-mono">$${p.projectedPayout}</div>
+                    </div>
+                    <div>
+                      <div class="text-slate-400">Bounties / Pen</div>
+                      <div class="font-bold text-slate-300 font-mono">+$${p.bounties} / -$${p.penalties}</div>
+                    </div>
+                    <div>
+                      <div class="text-slate-400">Net P/L</div>
+                      <div class="font-black font-mono ${isProfit ? 'text-emerald-400' : (isLoss ? 'text-rose-400' : 'text-slate-400')}">
+                        ${p.netProfitLoss > 0 ? '+' : ''}$${p.netProfitLoss}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              `;
+            }).join('');
+          }
+        }
+      } catch (err) {
+        console.warn('Failed to load commissioner finances:', err);
+      }
+
+      // Week selector
+      const weekSel = document.getElementById('admin-week-selector');
+      weekSel.innerHTML = Array.from({length: 18}, (_, i) => i + 1).map(w => `
+        <button onclick="adminSetActiveWeek(${w})" class="py-1 text-[11px] font-bold rounded ${w === appState.currentWeek ? 'bg-rose-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
+          W${w}
+        </button>
+      `).join('');
+
+      // Auto settlement status indicator
+      const autoStatus = document.getElementById('admin-auto-settle-status');
+      if (autoStatus) {
+        const curWeekGames = appState.games.filter(g => g.week === selectedWeek);
+        const finals = curWeekGames.filter(g => g.status === 'final').length;
+        const total = curWeekGames.length;
+        if (finals === total && total > 0) {
+          autoStatus.innerText = `Week ${selectedWeek} Settled ✓`;
+          autoStatus.className = "font-bold text-emerald-400 font-mono";
+        } else if (finals > 0) {
+          autoStatus.innerText = `${finals}/${total} Finals (Auto-Tracking)`;
+          autoStatus.className = "font-bold text-amber-400 font-mono";
+        } else {
+          autoStatus.innerText = `0/${total} Games Final (Auto-Active)`;
+          autoStatus.className = "font-bold text-slate-400 font-mono";
+        }
+      }
+
+      // Featured picker dropdown
+      const featSelect = document.getElementById('admin-featured-picker-select');
+      const curCfg = appState.weeklyConfigs[appState.currentWeek] || {};
+      featSelect.innerHTML = `
+        <option value="">-- No User (Commissioner Pick) --</option>
+        ${appState.users.map(u => `<option value="${u.id}" ${u.id === curCfg.featuredPickerId ? 'selected' : ''}>${u.name}</option>`).join('')}
+      `;
+
+      // 18-week chooser grid
+      const grid18 = document.getElementById('admin-18-week-grid');
+      grid18.innerHTML = Array.from({length: 18}, (_, i) => i + 1).map(w => {
+        const cfg = appState.weeklyConfigs[w] || {};
+        return `
+          <div class="bg-slate-850 p-2 rounded-xl border border-slate-800 space-y-1">
+            <div class="text-[10px] font-bold text-amber-400">Week ${w}</div>
+            <select onchange="adminSetWeekPicker(${w}, this.value)" class="w-full bg-slate-950 border border-slate-700 text-[10px] rounded p-1 text-slate-200">
+              <option value="">-- Unassigned --</option>
+              ${appState.users.map(u => `<option value="${u.id}" ${u.id === cfg.featuredPickerId ? 'selected' : ''}>${u.name}</option>`).join('')}
+            </select>
+          </div>
+        `;
+      }).join('');
+
+      // 18-Week Opening Schedule Grid (Tuesday Midnight ET Rule)
+      const unlockGrid = document.getElementById('admin-week-unlock-grid');
+      if (unlockGrid && appState.weekStatuses) {
+        unlockGrid.innerHTML = Array.from({length: 18}, (_, i) => i + 1).map(w => {
+          const ws = appState.weekStatuses[w] || {};
+          const isUnlocked = ws.isUnlocked;
+          const cfg = (appState.weeklyConfigs && (appState.weeklyConfigs[w] || appState.weeklyConfigs[String(w)])) || {};
+          const isForced = Boolean(cfg.forceUnlocked);
+
+          return `
+            <div class="bg-slate-850 p-2.5 rounded-xl border ${isUnlocked ? 'border-emerald-800/80 bg-emerald-950/10' : 'border-slate-800'} space-y-2 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-slate-200">Week ${w}</span>
+                <span class="text-[9px] font-black uppercase px-1.5 py-0.5 rounded ${isUnlocked ? 'bg-emerald-950 text-emerald-400 border border-emerald-800' : 'bg-amber-950 text-amber-400 border border-amber-800'}">
+                  ${isUnlocked ? (isForced ? '⚡ Forced' : '✓ Open') : '🔒 Locked'}
+                </span>
+              </div>
+              <div class="text-[10px] text-slate-400 truncate" title="${ws.fullFormatted || ''}">
+                ${ws.unlockFormatted || 'Tue 12:00 AM ET'}
+              </div>
+              <button onclick="adminToggleWeekUnlock(${w}, ${isForced})" class="w-full py-1 rounded text-[10px] font-bold transition ${isForced ? 'bg-rose-950 text-rose-300 border border-rose-800 hover:bg-rose-900' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}">
+                ${isForced ? 'Reset Auto' : (isUnlocked ? 'Auto Open' : '⚡ Unlock Early')}
+              </button>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Blazing Week Manager
+      const blazingGrid = document.getElementById('admin-blazing-week-grid');
+      blazingGrid.innerHTML = appState.users.map(u => `
+        <div class="bg-slate-850 p-3 rounded-xl border border-slate-800 space-y-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <img src="${u.avatar}" class="w-6 h-6 rounded-full" />
+              <span class="text-xs font-bold text-slate-200">${u.name}</span>
+            </div>
+            <span class="text-[10px] font-bold ${u.blazingWeekUsed ? 'text-rose-400' : 'text-slate-500'}">
+              ${u.blazingWeekUsed ? `🔥 Week ${u.blazingWeekUsed}` : 'Undeclared (W18)'}
+            </span>
+          </div>
+          <div class="flex items-center justify-between text-xs gap-2 pt-1 border-t border-slate-800">
+            <span class="text-[10px] font-bold uppercase text-slate-400">Assign:</span>
+            <select onchange="adminSetUserBlazingWeek('${u.id}', this.value)" class="flex-1 bg-slate-950 border border-slate-700 text-xs text-slate-200 rounded px-2 py-1">
+              <option value="">⏱️ Undeclared (W18)</option>
+              ${Array.from({length: 18}, (_, i) => i + 1).map(w => `<option value="${w}" ${w === u.blazingWeekUsed ? 'selected' : ''}>🔥 Week ${w}</option>`).join('')}
+            </select>
+          </div>
+        </div>
+      `).join('');
+
+      // Game overrides
+      const overrideList = document.getElementById('admin-game-override-list');
+      const curGames = appState.games.filter(g => g.week === selectedWeek);
+      overrideList.innerHTML = curGames.map(g => `
+        <div class="py-2.5 flex items-center justify-between text-xs gap-3">
+          <div class="font-bold text-slate-200 min-w-0 truncate">
+            ${g.awayTeam.name} @ ${g.homeTeam.name}
+          </div>
+          <div class="flex items-center space-x-2 shrink-0">
+            <span class="text-slate-400 font-mono">Home Line:</span>
+            <input type="number" step="0.5" value="${g.homeSpread}" onchange="adminUpdateSpread('${g.id}', this.value)" class="w-16 bg-slate-950 border border-slate-700 text-xs rounded px-1.5 py-0.5 text-center font-bold text-amber-300" />
+            <button onclick="adminSimulateGame('${g.id}')" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px] font-bold rounded">Sim 28-21</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function adminToggleBuyInPaid(userId, currentPaid) {
+      try {
+        await fetch('/api/finances/toggle-buyin', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ userId, paid: !currentPaid })
+        });
+        notify('success', 'Player payment status updated.');
+        await loadLeagueData();
+        await renderAdminTab();
+      } catch (err) {
+        notify('error', 'Failed to update payment status.');
+      }
+    }
+
+    async function adminToggleWeekUnlock(week, currentlyForced) {
+      try {
+        const res = await fetch('/api/admin/toggle-week-unlock', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ week, forceUnlock: !currentlyForced })
+        });
+        const data = await res.json();
+        notify('success', data.message || `Week ${week} unlock status updated.`);
+        await loadLeagueData();
+        await renderAdminTab();
+        renderPicksTab();
+      } catch (err) {
+        notify('error', 'Failed to toggle week unlock status.');
+      }
+    }
+
+    async function adminSetActiveWeek(w) {
+      await fetch('/api/admin/set-week', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ week: w })
+      });
+      await loadLeagueData();
+    }
+
+    async function adminUpdateFeaturedPicker() {
+      const pickerId = document.getElementById('admin-featured-picker-select').value;
+      await fetch('/api/admin/featured-picker', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ week: appState.currentWeek, pickerId: pickerId || null })
+      });
+      await loadLeagueData();
+    }
+
+    async function adminSetWeekPicker(w, pickerId) {
+      await fetch('/api/admin/featured-picker', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ week: w, pickerId: pickerId || null })
+      });
+      await loadLeagueData();
+    }
+
+    async function updateFeaturedPickerFromPicks(pickerId) {
+      await fetch('/api/admin/featured-picker', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ week: selectedWeek, pickerId: pickerId || null })
+      });
+      await loadLeagueData();
+    }
+
+    async function adminSetUserBlazingWeek(userId, weekVal) {
+      const week = weekVal === '' ? null : Number(weekVal);
+      await fetch('/api/admin/user-blazing-week', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ userId, week })
+      });
+      notify('success', 'Blazing Week updated');
+      await loadLeagueData();
+    }
+
+    async function adminSettleWeek() {
+      const res = await fetch('/api/admin/settle-week', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ week: selectedWeek })
+      });
+      const data = await res.json();
+      notify('success', `Week ${selectedWeek} settled!`);
+      await loadLeagueData();
+    }
+
+    async function triggerLiveEspnSync() {
+      const syncBtn = document.getElementById('btn-live-espn-sync');
+      const syncIcon = document.getElementById('sync-icon');
+      if (syncIcon) syncIcon.classList.add('fa-spin');
+      try {
+        const res = await fetch('/api/nfl/sync', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ week: selectedWeek })
+        });
+        const data = await res.json();
+        if (data.success) {
+          notify('success', `ESPN Sync: Updated ${data.updatedCount} games & live odds!`);
+        } else {
+          notify('error', data.message || 'ESPN Sync failed');
+        }
+        await loadLeagueData();
+        renderPicksTab();
+        if (activeTab === 'standings') renderStandingsTab();
+        if (activeTab === 'admin') renderAdminTab();
+      } catch (err) {
+        notify('error', 'Error syncing with ESPN live feed.');
+      } finally {
+        if (syncIcon) syncIcon.classList.remove('fa-spin');
+      }
+    }
+
+    async function adminUpdateSpread(gameId, val) {
+      await fetch('/api/admin/override-game', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ gameId, updates: { homeSpread: Number(val), awaySpread: -Number(val) } })
+      });
+      await loadLeagueData();
+    }
+
+    async function adminSimulateGame(gameId) {
+      await fetch('/api/admin/override-game', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ gameId, updates: { status: 'final', homeScore: 28, awayScore: 21 } })
+      });
+      notify('success', 'Game simulated as Final 28-21');
+      await loadLeagueData();
+    }
+
+    function toggleAllWeeksPickerSchedule() {
+      const el = document.getElementById('all-weeks-picker-panel');
+      el.classList.toggle('hidden');
+    }
+
+    // --- Modals ---
+    function openFeaturedPickerModal() {
+      const weekGames = appState.games.filter(g => g.week === selectedWeek);
+      const list = document.getElementById('modal-featured-game-list');
+      list.innerHTML = weekGames.map(g => `
+        <button onclick="selectFeaturedGame('${g.id}')" class="w-full p-3 bg-slate-850 hover:bg-slate-800 rounded-xl border border-slate-750 flex items-center justify-between text-xs text-left">
+          <span class="font-bold text-slate-100">${g.awayTeam.name} @ ${g.homeTeam.name}</span>
+          <span class="text-amber-400 font-mono font-bold">${g.homeSpread > 0 ? '+' : ''}${g.homeSpread}</span>
+        </button>
+      `).join('');
+      document.getElementById('modal-featured-game').classList.remove('hidden');
+    }
+
+    function closeFeaturedPickerModal() {
+      document.getElementById('modal-featured-game').classList.add('hidden');
+    }
+
+    async function selectFeaturedGame(gameId) {
+      await fetch('/api/featured-game', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ week: selectedWeek, gameId })
+      });
+      closeFeaturedPickerModal();
+      notify('success', 'Must-pick featured game updated!');
+      await loadLeagueData();
+    }
+
+    function toggleRulesModal(open) {
+      document.getElementById('modal-rules').classList.toggle('hidden', !open);
+    }
+
+    function notify(type, text) {
+      const banner = document.getElementById('notification-banner');
+      const box = document.getElementById('notification-box');
+      const icon = document.getElementById('notification-icon');
+      const label = document.getElementById('notification-text');
+
+      label.innerText = text;
+      if (type === 'success') {
+        box.className = "p-3 rounded-xl border flex items-center justify-between text-xs font-semibold shadow-lg bg-emerald-950/90 text-emerald-200 border-emerald-800";
+        icon.className = "fa-solid fa-circle-check text-emerald-400";
+      } else {
+        box.className = "p-3 rounded-xl border flex items-center justify-between text-xs font-semibold shadow-lg bg-rose-950/90 text-rose-200 border-rose-800";
+        icon.className = "fa-solid fa-circle-exclamation text-rose-400";
+      }
+      banner.classList.remove('hidden');
+      setTimeout(hideNotification, 5000);
+    }
+
+    function hideNotification() {
+      document.getElementById('notification-banner').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "Blazing 5 NFL Pick'em",
+  "description": "Against-The-Spread NFL fantasy pick'em league with Blazing Weeks, locks, season win totals, official Vegas spreads, and automated pot tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

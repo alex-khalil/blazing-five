@@ -1,0 +1,12 @@
+{
+  "name": "blazing-5-nfl-pickem",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.ts",
+    "build": "node server.ts --build",
+    "start": "node server.ts",
+    "lint": "node server.ts --build"
+  }
+}

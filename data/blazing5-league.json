@@ -1,0 +1,6132 @@
+{
+  "currentWeek": 4,
+  "seasonYear": 2026,
+  "isSeasonStarted": true,
+  "seasonOULocked": true,
+  "lastEspnPollTime": "2026-09-24T20:07:06.921Z",
+  "pollingStatus": "idle",
+  "pollingMessage": "Successfully synchronized 16 games from ESPN.",
+  "users": [
+    {
+      "id": "usr_admin",
+      "name": "Alex Khalil",
+      "email": "khalil.alex@icloud.com",
+      "role": "admin",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "blazingWeekUsed": null,
+      "buyInPaid": true,
+      "createdAt": "2026-08-15T00:00:00.000Z"
+    },
+    {
+      "id": "usr_dave",
+      "name": "Dave Miller",
+      "email": "dave.miller@example.com",
+      "role": "player",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+      "blazingWeekUsed": 3,
+      "buyInPaid": true,
+      "createdAt": "2026-08-16T00:00:00.000Z"
+    },
+    {
+      "id": "usr_sarah",
+      "name": "Sarah Jenkins",
+      "email": "sarah.j@example.com",
+      "role": "player",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+      "blazingWeekUsed": null,
+      "buyInPaid": true,
+      "createdAt": "2026-08-17T00:00:00.000Z"
+    },
+    {
+      "id": "usr_marcus",
+      "name": "Marcus Vance",
+      "email": "mvance@example.com",
+      "role": "player",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+      "blazingWeekUsed": null,
+      "buyInPaid": true,
+      "createdAt": "2026-08-17T00:00:00.000Z"
+    },
+    {
+      "id": "usr_mike",
+      "name": "Mike Peterson",
+      "email": "mikep@example.com",
+      "role": "player",
+      "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80",
+      "blazingWeekUsed": 4,
+      "buyInPaid": false,
+      "createdAt": "2026-08-18T00:00:00.000Z"
+    },
+    {
+      "id": "usr_chloe",
+      "name": "Chloe Rivera",
+      "email": "chloe.r@example.com",
+      "role": "player",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+      "blazingWeekUsed": null,
+      "buyInPaid": true,
+      "createdAt": "2026-08-19T00:00:00.000Z"
+    }
+  ],
+  "weeklyConfigs": {
+    "1": {
+      "week": 1,
+      "featuredPickerId": "usr_admin",
+      "featuredGameId": "gm_w1_1",
+      "isFinalized": true
+    },
+    "2": {
+      "week": 2,
+      "featuredPickerId": "usr_dave",
+      "featuredGameId": "gm_w2_1",
+      "isFinalized": true
+    },
+    "3": {
+      "week": 3,
+      "featuredPickerId": "usr_sarah",
+      "featuredGameId": "gm_w3_1",
+      "isFinalized": true
+    },
+    "4": {
+      "week": 4,
+      "featuredPickerId": "usr_marcus",
+      "featuredGameId": "gm_w4_1",
+      "isFinalized": false
+    },
+    "5": {
+      "week": 5,
+      "featuredPickerId": "usr_mike",
+      "featuredGameId": null,
+      "isFinalized": false,
+      "forceUnlocked": false
+    },
+    "6": {
+      "week": 6,
+      "featuredPickerId": "usr_chloe",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "7": {
+      "week": 7,
+      "featuredPickerId": "usr_admin",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "8": {
+      "week": 8,
+      "featuredPickerId": "usr_dave",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "9": {
+      "week": 9,
+      "featuredPickerId": "usr_sarah",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "10": {
+      "week": 10,
+      "featuredPickerId": "usr_marcus",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "11": {
+      "week": 11,
+      "featuredPickerId": "usr_mike",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "12": {
+      "week": 12,
+      "featuredPickerId": "usr_chloe",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "13": {
+      "week": 13,
+      "featuredPickerId": "usr_admin",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "14": {
+      "week": 14,
+      "featuredPickerId": "usr_dave",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "15": {
+      "week": 15,
+      "featuredPickerId": "usr_sarah",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "16": {
+      "week": 16,
+      "featuredPickerId": "usr_marcus",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "17": {
+      "week": 17,
+      "featuredPickerId": "usr_mike",
+      "featuredGameId": null,
+      "isFinalized": false
+    },
+    "18": {
+      "week": 18,
+      "featuredPickerId": "usr_admin",
+      "featuredGameId": null,
+      "isFinalized": false
+    }
+  },
+  "games": [
+    {
+      "id": "gm_w1_1",
+      "week": 1,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "1-0"
+      },
+      "awayTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "0-1"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-09-03T13:00:00.000Z",
+      "status": "final",
+      "homeScore": 27,
+      "awayScore": 25,
+      "isFeatured": true
+    },
+    {
+      "id": "gm_w1_2",
+      "week": 1,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "1-0"
+      },
+      "awayTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "0-1"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-09-04T16:00:00.000Z",
+      "status": "final",
+      "homeScore": 32,
+      "awayScore": 32,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w1_3",
+      "week": 1,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "1-0"
+      },
+      "awayTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "0-1"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-09-05T19:00:00.000Z",
+      "status": "final",
+      "homeScore": 37,
+      "awayScore": 26,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w1_4",
+      "week": 1,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "1-0"
+      },
+      "awayTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "0-1"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-09-03T22:00:00.000Z",
+      "status": "final",
+      "homeScore": 28,
+      "awayScore": 20,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w1_5",
+      "week": 1,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "1-0"
+      },
+      "awayTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "0-1"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-09-04T13:00:00.000Z",
+      "status": "final",
+      "homeScore": 33,
+      "awayScore": 27,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w1_6",
+      "week": 1,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "1-0"
+      },
+      "awayTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "0-1"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-09-05T16:00:00.000Z",
+      "status": "final",
+      "homeScore": 24,
+      "awayScore": 21,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w1_7",
+      "week": 1,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "1-0"
+      },
+      "awayTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "0-1"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-09-03T19:00:00.000Z",
+      "status": "final",
+      "homeScore": 29,
+      "awayScore": 28,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w1_8",
+      "week": 1,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "1-0"
+      },
+      "awayTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "0-1"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-09-04T22:00:00.000Z",
+      "status": "final",
+      "homeScore": 34,
+      "awayScore": 22,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w1_9",
+      "week": 1,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "1-0"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "0-1"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-09-05T13:00:00.000Z",
+      "status": "final",
+      "homeScore": 25,
+      "awayScore": 29,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w1_10",
+      "week": 1,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "1-0"
+      },
+      "awayTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "0-1"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-09-03T16:00:00.000Z",
+      "status": "final",
+      "homeScore": 30,
+      "awayScore": 23,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w2_1",
+      "week": 2,
+      "season": 2026,
+      "homeTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "0-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-09-10T13:00:00.000Z",
+      "status": "final",
+      "homeScore": 30,
+      "awayScore": 30,
+      "isFeatured": true
+    },
+    {
+      "id": "gm_w2_2",
+      "week": 2,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "0-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-09-11T16:00:00.000Z",
+      "status": "final",
+      "homeScore": 35,
+      "awayScore": 24,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w2_3",
+      "week": 2,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "0-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-09-12T19:00:00.000Z",
+      "status": "final",
+      "homeScore": 26,
+      "awayScore": 31,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w2_4",
+      "week": 2,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "0-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-09-10T22:00:00.000Z",
+      "status": "final",
+      "homeScore": 31,
+      "awayScore": 25,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w2_5",
+      "week": 2,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "0-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-09-11T13:00:00.000Z",
+      "status": "final",
+      "homeScore": 36,
+      "awayScore": 32,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w2_6",
+      "week": 2,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "0-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-09-12T16:00:00.000Z",
+      "status": "final",
+      "homeScore": 27,
+      "awayScore": 26,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w2_7",
+      "week": 2,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "0-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-09-10T19:00:00.000Z",
+      "status": "final",
+      "homeScore": 32,
+      "awayScore": 20,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w2_8",
+      "week": 2,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "0-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-09-11T22:00:00.000Z",
+      "status": "final",
+      "homeScore": 37,
+      "awayScore": 27,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w2_9",
+      "week": 2,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "0-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-09-12T13:00:00.000Z",
+      "status": "final",
+      "homeScore": 28,
+      "awayScore": 21,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w2_10",
+      "week": 2,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "0-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-09-10T16:00:00.000Z",
+      "status": "final",
+      "homeScore": 33,
+      "awayScore": 28,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w3_1",
+      "week": 3,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "1-3"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-09-17T13:00:00.000Z",
+      "status": "final",
+      "homeScore": 33,
+      "awayScore": 22,
+      "isFeatured": true
+    },
+    {
+      "id": "gm_w3_2",
+      "week": 3,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "1-3"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-09-18T16:00:00.000Z",
+      "status": "final",
+      "homeScore": 24,
+      "awayScore": 29,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w3_3",
+      "week": 3,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "1-3"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-09-19T19:00:00.000Z",
+      "status": "final",
+      "homeScore": 29,
+      "awayScore": 23,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w3_4",
+      "week": 3,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "1-3"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-09-17T22:00:00.000Z",
+      "status": "final",
+      "homeScore": 34,
+      "awayScore": 30,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w3_5",
+      "week": 3,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "1-3"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-09-18T13:00:00.000Z",
+      "status": "final",
+      "homeScore": 25,
+      "awayScore": 24,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w3_6",
+      "week": 3,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "1-3"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-09-19T16:00:00.000Z",
+      "status": "final",
+      "homeScore": 30,
+      "awayScore": 31,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w3_7",
+      "week": 3,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "1-3"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-09-17T19:00:00.000Z",
+      "status": "final",
+      "homeScore": 35,
+      "awayScore": 25,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w3_8",
+      "week": 3,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "1-3"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-09-18T22:00:00.000Z",
+      "status": "final",
+      "homeScore": 26,
+      "awayScore": 32,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w3_9",
+      "week": 3,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "1-3"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-09-19T13:00:00.000Z",
+      "status": "final",
+      "homeScore": 31,
+      "awayScore": 26,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w3_10",
+      "week": 3,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "1-3"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-09-17T16:00:00.000Z",
+      "status": "final",
+      "homeScore": 36,
+      "awayScore": 20,
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w4_1",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.0,
+      "awaySpread": 3.0,
+      "overUnder": 47.5,
+      "kickoffTime": "2026-10-04T17:00Z",
+      "status": "scheduled",
+      "isFeatured": true,
+      "homeScore": null,
+      "awayScore": null,
+      "liveClockDetail": "10/4 - 1:00 PM EDT",
+      "espnId": "401872967",
+      "lastLiveSync": "2026-09-25T16:44:10.860911+00:00"
+    },
+    {
+      "id": "gm_w4_2",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "3-1"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 49,
+      "kickoffTime": "2026-09-24T19:34:36.347047+00:00",
+      "status": "in_progress",
+      "homeScore": 20,
+      "awayScore": 23
+    },
+    {
+      "id": "gm_w4_3",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-10-04T17:00Z",
+      "status": "scheduled",
+      "awayScore": null,
+      "homeScore": null,
+      "liveClockDetail": "10/4 - 1:00 PM EDT",
+      "espnId": "401872968",
+      "lastLiveSync": "2026-09-25T16:44:10.860856+00:00"
+    },
+    {
+      "id": "gm_w4_4",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "1-3"
+      },
+      "homeSpread": -3.0,
+      "awaySpread": 3.0,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-10-04T20:25Z",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "liveClockDetail": "10/4 - 4:25 PM EDT",
+      "espnId": "401872975",
+      "lastLiveSync": "2026-09-25T16:44:10.860985+00:00"
+    },
+    {
+      "id": "gm_w4_5",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "1-3"
+      },
+      "homeSpread": -10.5,
+      "awaySpread": 10.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-10-04T20:05Z",
+      "status": "scheduled",
+      "awayScore": null,
+      "homeScore": null,
+      "liveClockDetail": "10/4 - 4:05 PM EDT",
+      "espnId": "401872974",
+      "lastLiveSync": "2026-09-25T16:44:10.860926+00:00"
+    },
+    {
+      "id": "gm_w4_6",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Indianapolis Colts",
+        "abbreviation": "IND",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-10-04T13:30Z",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "liveClockDetail": "10/4 - 9:30 AM EDT",
+      "espnId": "401872965",
+      "lastLiveSync": "2026-09-25T16:44:10.860697+00:00"
+    },
+    {
+      "id": "gm_w4_7",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "3-1"
+      },
+      "awayTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "1-3"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-09-26T21:04:36.347047+00:00",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null
+    },
+    {
+      "id": "gm_w4_8",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "3-1"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-09-26T21:04:36.347047+00:00",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null
+    },
+    {
+      "id": "gm_w4_9",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "4-0"
+      },
+      "homeSpread": -3.0,
+      "awaySpread": 3.0,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-10-04T17:00Z",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "liveClockDetail": "10/4 - 1:00 PM EDT",
+      "espnId": "401872972",
+      "lastLiveSync": "2026-09-25T16:44:10.860737+00:00"
+    },
+    {
+      "id": "gm_w4_10",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "1-3"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 39.5,
+      "kickoffTime": "2026-09-26T21:04:36.347047+00:00",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null
+    },
+    {
+      "id": "gm_w5_1",
+      "week": 5,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-10-01T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w5_2",
+      "week": 5,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-10-02T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w5_3",
+      "week": 5,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-10-03T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w5_4",
+      "week": 5,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-10-01T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w5_5",
+      "week": 5,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-10-02T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w5_6",
+      "week": 5,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-10-03T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w5_7",
+      "week": 5,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-10-01T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w5_8",
+      "week": 5,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-10-02T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w5_9",
+      "week": 5,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-10-03T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w5_10",
+      "week": 5,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-10-01T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w6_1",
+      "week": 6,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-10-08T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w6_2",
+      "week": 6,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-10-09T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w6_3",
+      "week": 6,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-10-10T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w6_4",
+      "week": 6,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-10-08T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w6_5",
+      "week": 6,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-10-09T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w6_6",
+      "week": 6,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-10-10T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w6_7",
+      "week": 6,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-10-08T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w6_8",
+      "week": 6,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-10-09T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w6_9",
+      "week": 6,
+      "season": 2026,
+      "homeTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-10-10T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w6_10",
+      "week": 6,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-10-08T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w7_1",
+      "week": 7,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-10-15T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w7_2",
+      "week": 7,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-10-16T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w7_3",
+      "week": 7,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-10-17T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w7_4",
+      "week": 7,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-10-15T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w7_5",
+      "week": 7,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-10-16T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w7_6",
+      "week": 7,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-10-17T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w7_7",
+      "week": 7,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-10-15T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w7_8",
+      "week": 7,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-10-16T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w7_9",
+      "week": 7,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-10-17T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w7_10",
+      "week": 7,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-10-15T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w8_1",
+      "week": 8,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-10-22T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w8_2",
+      "week": 8,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-10-23T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w8_3",
+      "week": 8,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-10-24T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w8_4",
+      "week": 8,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-10-22T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w8_5",
+      "week": 8,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-10-23T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w8_6",
+      "week": 8,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-10-24T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w8_7",
+      "week": 8,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-10-22T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w8_8",
+      "week": 8,
+      "season": 2026,
+      "homeTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-10-23T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w8_9",
+      "week": 8,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-10-24T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w8_10",
+      "week": 8,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-10-22T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w9_1",
+      "week": 9,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-10-29T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w9_2",
+      "week": 9,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-10-30T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w9_3",
+      "week": 9,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-10-31T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w9_4",
+      "week": 9,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-10-29T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w9_5",
+      "week": 9,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-10-30T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w9_6",
+      "week": 9,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-10-31T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w9_7",
+      "week": 9,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-10-29T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w9_8",
+      "week": 9,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-10-30T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w9_9",
+      "week": 9,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-10-31T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w9_10",
+      "week": 9,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-10-29T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w10_1",
+      "week": 10,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-11-05T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w10_2",
+      "week": 10,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-11-06T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w10_3",
+      "week": 10,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-11-07T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w10_4",
+      "week": 10,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-11-05T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w10_5",
+      "week": 10,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-11-06T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w10_6",
+      "week": 10,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-11-07T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w10_7",
+      "week": 10,
+      "season": 2026,
+      "homeTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-11-05T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w10_8",
+      "week": 10,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-11-06T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w10_9",
+      "week": 10,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-11-07T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w10_10",
+      "week": 10,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-11-05T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w11_1",
+      "week": 11,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-11-12T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w11_2",
+      "week": 11,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-11-13T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w11_3",
+      "week": 11,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-11-14T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w11_4",
+      "week": 11,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-11-12T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w11_5",
+      "week": 11,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-11-13T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w11_6",
+      "week": 11,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-11-14T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w11_7",
+      "week": 11,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-11-12T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w11_8",
+      "week": 11,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-11-13T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w11_9",
+      "week": 11,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-11-14T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w11_10",
+      "week": 11,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-11-12T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w12_1",
+      "week": 12,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-11-19T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w12_2",
+      "week": 12,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-11-20T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w12_3",
+      "week": 12,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-11-21T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w12_4",
+      "week": 12,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-11-19T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w12_5",
+      "week": 12,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-11-20T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w12_6",
+      "week": 12,
+      "season": 2026,
+      "homeTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-11-21T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w12_7",
+      "week": 12,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-11-19T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w12_8",
+      "week": 12,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-11-20T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w12_9",
+      "week": 12,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-11-21T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w12_10",
+      "week": 12,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-11-19T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w13_1",
+      "week": 13,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-11-26T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w13_2",
+      "week": 13,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-11-27T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w13_3",
+      "week": 13,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-11-28T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w13_4",
+      "week": 13,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-11-26T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w13_5",
+      "week": 13,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-11-27T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w13_6",
+      "week": 13,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-11-28T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w13_7",
+      "week": 13,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-11-26T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w13_8",
+      "week": 13,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-11-27T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w13_9",
+      "week": 13,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-11-28T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w13_10",
+      "week": 13,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-11-26T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w14_1",
+      "week": 14,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-12-03T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w14_2",
+      "week": 14,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-12-04T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w14_3",
+      "week": 14,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-12-05T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w14_4",
+      "week": 14,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-12-03T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w14_5",
+      "week": 14,
+      "season": 2026,
+      "homeTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-12-04T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w14_6",
+      "week": 14,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-12-05T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w14_7",
+      "week": 14,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-12-03T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w14_8",
+      "week": 14,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-12-04T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w14_9",
+      "week": 14,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-12-05T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w14_10",
+      "week": 14,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-12-03T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w15_1",
+      "week": 15,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-12-10T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w15_2",
+      "week": 15,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-12-11T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w15_3",
+      "week": 15,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-12-12T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w15_4",
+      "week": 15,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-12-10T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w15_5",
+      "week": 15,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-12-11T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w15_6",
+      "week": 15,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-12-12T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w15_7",
+      "week": 15,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-12-10T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w15_8",
+      "week": 15,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-12-11T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w15_9",
+      "week": 15,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-12-12T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w15_10",
+      "week": 15,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-12-10T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w16_1",
+      "week": 16,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-12-17T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w16_2",
+      "week": 16,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-12-18T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w16_3",
+      "week": 16,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-12-19T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w16_4",
+      "week": 16,
+      "season": 2026,
+      "homeTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-12-17T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w16_5",
+      "week": 16,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-12-18T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w16_6",
+      "week": 16,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-12-19T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w16_7",
+      "week": 16,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-12-17T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w16_8",
+      "week": 16,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-12-18T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w16_9",
+      "week": 16,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-12-19T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w16_10",
+      "week": 16,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-12-17T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w17_1",
+      "week": 17,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-12-24T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w17_2",
+      "week": 17,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2026-12-25T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w17_3",
+      "week": 17,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-12-26T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w17_4",
+      "week": 17,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-12-24T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w17_5",
+      "week": 17,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-12-25T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w17_6",
+      "week": 17,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2026-12-26T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w17_7",
+      "week": 17,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-12-24T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w17_8",
+      "week": 17,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2026-12-25T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w17_9",
+      "week": 17,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-12-26T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w17_10",
+      "week": 17,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-12-24T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w18_1",
+      "week": 18,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+        "record": "2-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-12-31T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w18_2",
+      "week": 18,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 47,
+      "kickoffTime": "2027-01-01T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w18_3",
+      "week": 18,
+      "season": 2026,
+      "homeTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+        "record": "2-2"
+      },
+      "homeSpread": -6,
+      "awaySpread": 6,
+      "overUnder": 43.5,
+      "kickoffTime": "2027-01-02T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w18_4",
+      "week": 18,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+        "record": "2-2"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 48,
+      "kickoffTime": "2026-12-31T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w18_5",
+      "week": 18,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+        "record": "2-2"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2027-01-01T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w18_6",
+      "week": 18,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+        "record": "2-2"
+      },
+      "homeSpread": -7,
+      "awaySpread": 7,
+      "overUnder": 51,
+      "kickoffTime": "2027-01-02T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w18_7",
+      "week": 18,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+        "record": "2-2"
+      },
+      "homeSpread": -1.5,
+      "awaySpread": 1.5,
+      "overUnder": 44,
+      "kickoffTime": "2026-12-31T19:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w18_8",
+      "week": 18,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+        "record": "2-2"
+      },
+      "homeSpread": 3,
+      "awaySpread": -3,
+      "overUnder": 40.5,
+      "kickoffTime": "2027-01-01T22:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w18_9",
+      "week": 18,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+        "record": "2-2"
+      },
+      "homeSpread": -2,
+      "awaySpread": 2,
+      "overUnder": 46.5,
+      "kickoffTime": "2027-01-02T13:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "gm_w18_10",
+      "week": 18,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+        "record": "2-2"
+      },
+      "awayTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+        "record": "2-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-12-31T16:00:00.000Z",
+      "status": "scheduled",
+      "isFeatured": false
+    },
+    {
+      "id": "espn_401872964",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Cleveland Browns",
+        "abbreviation": "CLE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/cle.png",
+        "record": "1-1"
+      },
+      "awayTeam": {
+        "name": "Pittsburgh Steelers",
+        "abbreviation": "PIT",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/pit.png",
+        "record": "1-1"
+      },
+      "homeSpread": 3.0,
+      "awaySpread": -3.0,
+      "overUnder": 38.5,
+      "kickoffTime": "2026-10-02T00:15Z",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0,
+      "liveClockDetail": "10/1 - 8:15 PM EDT",
+      "espnId": "401872964",
+      "lastLiveSync": "2026-09-25T16:44:10.860654+00:00"
+    },
+    {
+      "id": "espn_401872965",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Washington Commanders",
+        "abbreviation": "WSH",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/wsh.png",
+        "record": "0-2"
+      },
+      "awayTeam": {
+        "name": "Indianapolis Colts",
+        "abbreviation": "IND",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png",
+        "record": "0-2"
+      },
+      "homeSpread": 4.5,
+      "awaySpread": -4.5,
+      "overUnder": 46.5,
+      "kickoffTime": "2026-09-26T21:04:36.347047+00:00",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0
+    },
+    {
+      "id": "espn_401872971",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Buffalo Bills",
+        "abbreviation": "BUF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/buf.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "New England Patriots",
+        "abbreviation": "NE",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ne.png",
+        "record": "1-1"
+      },
+      "homeSpread": -5.5,
+      "awaySpread": 5.5,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-09-26T21:04:36.347047+00:00",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0
+    },
+    {
+      "id": "espn_401872972",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Chicago Bears",
+        "abbreviation": "CHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/chi.png",
+        "record": "1-1"
+      },
+      "awayTeam": {
+        "name": "New York Jets",
+        "abbreviation": "NYJ",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyj.png",
+        "record": "1-1"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-09-26T21:04:36.347047+00:00",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0
+    },
+    {
+      "id": "espn_401872969",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Cincinnati Bengals",
+        "abbreviation": "CIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/cin.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Jacksonville Jaguars",
+        "abbreviation": "JAX",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/jax.png",
+        "record": "1-1"
+      },
+      "homeSpread": -3.0,
+      "awaySpread": 3.0,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-10-04T17:00Z",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0,
+      "liveClockDetail": "10/4 - 1:00 PM EDT",
+      "espnId": "401872969",
+      "lastLiveSync": "2026-09-25T16:44:10.860777+00:00"
+    },
+    {
+      "id": "espn_401872966",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New York Giants",
+        "abbreviation": "NYG",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyg.png",
+        "record": "1-1"
+      },
+      "awayTeam": {
+        "name": "Arizona Cardinals",
+        "abbreviation": "ARI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ari.png",
+        "record": "1-1"
+      },
+      "homeSpread": -2.5,
+      "awaySpread": 2.5,
+      "overUnder": 43.5,
+      "kickoffTime": "2026-10-04T17:00Z",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0,
+      "liveClockDetail": "10/4 - 1:00 PM EDT",
+      "espnId": "401872966",
+      "lastLiveSync": "2026-09-25T16:44:10.860826+00:00"
+    },
+    {
+      "id": "espn_401872970",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Philadelphia Eagles",
+        "abbreviation": "PHI",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/phi.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Rams",
+        "abbreviation": "LAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lar.png",
+        "record": "1-1"
+      },
+      "homeSpread": 2.5,
+      "awaySpread": -2.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-09-26T21:04:36.347047+00:00",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0
+    },
+    {
+      "id": "espn_401872968",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Tampa Bay Buccaneers",
+        "abbreviation": "TB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/tb.png",
+        "record": "0-2"
+      },
+      "awayTeam": {
+        "name": "Green Bay Packers",
+        "abbreviation": "GB",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/gb.png",
+        "record": "1-1"
+      },
+      "homeSpread": 1.5,
+      "awaySpread": -1.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-09-26T21:04:36.347047+00:00",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0
+    },
+    {
+      "id": "espn_401872973",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Baltimore Ravens",
+        "abbreviation": "BAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/bal.png",
+        "record": "1-1"
+      },
+      "awayTeam": {
+        "name": "Tennessee Titans",
+        "abbreviation": "TEN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ten.png",
+        "record": "0-2"
+      },
+      "homeSpread": -10.5,
+      "awaySpread": 10.5,
+      "overUnder": 44.5,
+      "kickoffTime": "2026-10-04T17:00Z",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0,
+      "liveClockDetail": "10/4 - 1:00 PM EDT",
+      "espnId": "401872973",
+      "lastLiveSync": "2026-09-25T16:44:10.860899+00:00"
+    },
+    {
+      "id": "espn_401872967",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Houston Texans",
+        "abbreviation": "HOU",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/hou.png",
+        "record": "0-2"
+      },
+      "awayTeam": {
+        "name": "Dallas Cowboys",
+        "abbreviation": "DAL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/dal.png",
+        "record": "1-1"
+      },
+      "homeSpread": -3,
+      "awaySpread": 3,
+      "overUnder": 47.5,
+      "kickoffTime": "2026-09-26T21:04:36.347047+00:00",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0
+    },
+    {
+      "id": "espn_401872974",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Minnesota Vikings",
+        "abbreviation": "MIN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/min.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Miami Dolphins",
+        "abbreviation": "MIA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/mia.png",
+        "record": "0-2"
+      },
+      "homeSpread": -10.5,
+      "awaySpread": 10.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-09-26T21:04:36.347047+00:00",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0
+    },
+    {
+      "id": "espn_401872976",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Las Vegas Raiders",
+        "abbreviation": "LV",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lv.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Kansas City Chiefs",
+        "abbreviation": "KC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/kc.png",
+        "record": "2-0"
+      },
+      "homeSpread": 6.0,
+      "awaySpread": -6.0,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-10-04T20:25Z",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0,
+      "liveClockDetail": "10/4 - 4:25 PM EDT",
+      "espnId": "401872976",
+      "lastLiveSync": "2026-09-25T16:44:10.860971+00:00"
+    },
+    {
+      "id": "espn_401872975",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "San Francisco 49ers",
+        "abbreviation": "SF",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/sf.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Denver Broncos",
+        "abbreviation": "DEN",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/den.png",
+        "record": "1-1"
+      },
+      "homeSpread": -4.5,
+      "awaySpread": 4.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-09-26T21:04:36.347047+00:00",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0
+    },
+    {
+      "id": "espn_401872977",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Seattle Seahawks",
+        "abbreviation": "SEA",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/sea.png",
+        "record": "2-0"
+      },
+      "awayTeam": {
+        "name": "Los Angeles Chargers",
+        "abbreviation": "LAC",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lac.png",
+        "record": "0-2"
+      },
+      "homeSpread": -6.5,
+      "awaySpread": 6.5,
+      "overUnder": 42.5,
+      "kickoffTime": "2026-10-04T20:25Z",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0,
+      "liveClockDetail": "10/4 - 4:25 PM EDT",
+      "espnId": "401872977",
+      "lastLiveSync": "2026-09-25T16:44:10.861032+00:00"
+    },
+    {
+      "id": "espn_401872978",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "Carolina Panthers",
+        "abbreviation": "CAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/car.png",
+        "record": "1-1"
+      },
+      "awayTeam": {
+        "name": "Detroit Lions",
+        "abbreviation": "DET",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/det.png",
+        "record": "1-1"
+      },
+      "homeSpread": 3.0,
+      "awaySpread": -3.0,
+      "overUnder": 49.5,
+      "kickoffTime": "2026-10-05T00:20Z",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0,
+      "liveClockDetail": "10/4 - 8:20 PM EDT",
+      "espnId": "401872978",
+      "lastLiveSync": "2026-09-25T16:44:10.861079+00:00"
+    },
+    {
+      "id": "espn_401872979",
+      "week": 4,
+      "season": 2026,
+      "homeTeam": {
+        "name": "New Orleans Saints",
+        "abbreviation": "NO",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/no.png",
+        "record": "1-1"
+      },
+      "awayTeam": {
+        "name": "Atlanta Falcons",
+        "abbreviation": "ATL",
+        "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/atl.png",
+        "record": "0-2"
+      },
+      "homeSpread": -3.5,
+      "awaySpread": 3.5,
+      "overUnder": 45.5,
+      "kickoffTime": "2026-10-06T00:15Z",
+      "status": "scheduled",
+      "homeScore": null,
+      "awayScore": null,
+      "clock": "0:00",
+      "quarter": 0,
+      "liveClockDetail": "10/5 - 8:15 PM EDT",
+      "espnId": "401872979",
+      "lastLiveSync": "2026-09-25T16:44:10.861128+00:00"
+    }
+  ],
+  "picks": [
+    {
+      "id": "p_w4_dave_1",
+      "userId": "usr_dave",
+      "week": 4,
+      "gameId": "gm_w4_1",
+      "pickedTeam": "away",
+      "pickedTeamName": "Dallas Cowboys",
+      "lockedSpread": 3.5,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_dave_2",
+      "userId": "usr_dave",
+      "week": 4,
+      "gameId": "gm_w4_2",
+      "pickedTeam": "away",
+      "pickedTeamName": "Baltimore Ravens",
+      "lockedSpread": 3.0,
+      "isLock": true,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_dave_3",
+      "userId": "usr_dave",
+      "week": 4,
+      "gameId": "gm_w4_3",
+      "pickedTeam": "home",
+      "pickedTeamName": "Detroit Lions",
+      "lockedSpread": -2.5,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_dave_4",
+      "userId": "usr_dave",
+      "week": 4,
+      "gameId": "gm_w4_4",
+      "pickedTeam": "away",
+      "pickedTeamName": "Los Angeles Rams",
+      "lockedSpread": 4.5,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_dave_5",
+      "userId": "usr_dave",
+      "week": 4,
+      "gameId": "gm_w4_5",
+      "pickedTeam": "home",
+      "pickedTeamName": "Buffalo Bills",
+      "lockedSpread": -6.0,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_sarah_1",
+      "userId": "usr_sarah",
+      "week": 4,
+      "gameId": "gm_w4_1",
+      "pickedTeam": "home",
+      "pickedTeamName": "Philadelphia Eagles",
+      "lockedSpread": -3.5,
+      "isLock": true,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_sarah_2",
+      "userId": "usr_sarah",
+      "week": 4,
+      "gameId": "gm_w4_2",
+      "pickedTeam": "home",
+      "pickedTeamName": "Kansas City Chiefs",
+      "lockedSpread": -3.0,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_sarah_3",
+      "userId": "usr_sarah",
+      "week": 4,
+      "gameId": "gm_w4_3",
+      "pickedTeam": "away",
+      "pickedTeamName": "Green Bay Packers",
+      "lockedSpread": 2.5,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_sarah_4",
+      "userId": "usr_sarah",
+      "week": 4,
+      "gameId": "gm_w4_4",
+      "pickedTeam": "home",
+      "pickedTeamName": "San Francisco 49ers",
+      "lockedSpread": -4.5,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_sarah_5",
+      "userId": "usr_sarah",
+      "week": 4,
+      "gameId": "gm_w4_5",
+      "pickedTeam": "away",
+      "pickedTeamName": "New York Jets",
+      "lockedSpread": 6.0,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_marcus_1",
+      "userId": "usr_marcus",
+      "week": 4,
+      "gameId": "gm_w4_1",
+      "pickedTeam": "away",
+      "pickedTeamName": "Dallas Cowboys",
+      "lockedSpread": 3.5,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_marcus_2",
+      "userId": "usr_marcus",
+      "week": 4,
+      "gameId": "gm_w4_2",
+      "pickedTeam": "home",
+      "pickedTeamName": "Kansas City Chiefs",
+      "lockedSpread": -3.0,
+      "isLock": true,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_marcus_3",
+      "userId": "usr_marcus",
+      "week": 4,
+      "gameId": "gm_w4_3",
+      "pickedTeam": "home",
+      "pickedTeamName": "Detroit Lions",
+      "lockedSpread": -2.5,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_marcus_4",
+      "userId": "usr_marcus",
+      "week": 4,
+      "gameId": "gm_w4_4",
+      "pickedTeam": "home",
+      "pickedTeamName": "San Francisco 49ers",
+      "lockedSpread": -4.5,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "p_w4_marcus_5",
+      "userId": "usr_marcus",
+      "week": 4,
+      "gameId": "gm_w4_5",
+      "pickedTeam": "home",
+      "pickedTeamName": "Buffalo Bills",
+      "lockedSpread": -6.0,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-24T20:44:31.421544+00:00"
+    },
+    {
+      "id": "pick_1790354659167_gm_w4_1",
+      "userId": "usr_admin",
+      "week": 4,
+      "gameId": "gm_w4_1",
+      "pickedTeam": "home",
+      "pickedTeamName": "Philadelphia Eagles",
+      "lockedSpread": -3.0,
+      "isLock": true,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-25T16:44:19.167509+00:00"
+    },
+    {
+      "id": "pick_1790354659167_gm_w4_2",
+      "userId": "usr_admin",
+      "week": 4,
+      "gameId": "gm_w4_2",
+      "pickedTeam": "home",
+      "pickedTeamName": "Kansas City Chiefs",
+      "lockedSpread": -2.5,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-25T16:44:19.167622+00:00"
+    },
+    {
+      "id": "pick_1790354659167_gm_w4_3",
+      "userId": "usr_admin",
+      "week": 4,
+      "gameId": "gm_w4_3",
+      "pickedTeam": "home",
+      "pickedTeamName": "Detroit Lions",
+      "lockedSpread": 1.5,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-25T16:44:19.167637+00:00"
+    },
+    {
+      "id": "pick_1790354659167_gm_w4_4",
+      "userId": "usr_admin",
+      "week": 4,
+      "gameId": "gm_w4_4",
+      "pickedTeam": "home",
+      "pickedTeamName": "San Francisco 49ers",
+      "lockedSpread": -3.0,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-25T16:44:19.167644+00:00"
+    },
+    {
+      "id": "pick_1790354659167_gm_w4_5",
+      "userId": "usr_admin",
+      "week": 4,
+      "gameId": "gm_w4_5",
+      "pickedTeam": "home",
+      "pickedTeamName": "Buffalo Bills",
+      "lockedSpread": -10.5,
+      "isLock": false,
+      "isBlazingWeek": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-25T16:44:19.167653+00:00"
+    }
+  ],
+  "seasonTeams": [
+    {
+      "teamId": "kc",
+      "teamName": "Kansas City Chiefs",
+      "abbrev": "KC",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+      "winTotalLine": 11.5,
+      "currentWins": 3,
+      "currentLosses": 1,
+      "conference": "AFC",
+      "division": "West"
+    },
+    {
+      "teamId": "bal",
+      "teamName": "Baltimore Ravens",
+      "abbrev": "BAL",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+      "winTotalLine": 11.5,
+      "currentWins": 3,
+      "currentLosses": 1,
+      "conference": "AFC",
+      "division": "North"
+    },
+    {
+      "teamId": "sf",
+      "teamName": "San Francisco 49ers",
+      "abbrev": "SF",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+      "winTotalLine": 11.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "NFC",
+      "division": "West"
+    },
+    {
+      "teamId": "det",
+      "teamName": "Detroit Lions",
+      "abbrev": "DET",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+      "winTotalLine": 10.5,
+      "currentWins": 3,
+      "currentLosses": 1,
+      "conference": "NFC",
+      "division": "North"
+    },
+    {
+      "teamId": "phi",
+      "teamName": "Philadelphia Eagles",
+      "abbrev": "PHI",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+      "winTotalLine": 10.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "NFC",
+      "division": "East"
+    },
+    {
+      "teamId": "buf",
+      "teamName": "Buffalo Bills",
+      "abbrev": "BUF",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+      "winTotalLine": 10.5,
+      "currentWins": 3,
+      "currentLosses": 1,
+      "conference": "AFC",
+      "division": "East"
+    },
+    {
+      "teamId": "cin",
+      "teamName": "Cincinnati Bengals",
+      "abbrev": "CIN",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+      "winTotalLine": 10.5,
+      "currentWins": 1,
+      "currentLosses": 3,
+      "conference": "AFC",
+      "division": "North"
+    },
+    {
+      "teamId": "hou",
+      "teamName": "Houston Texans",
+      "abbrev": "HOU",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+      "winTotalLine": 9.5,
+      "currentWins": 3,
+      "currentLosses": 1,
+      "conference": "AFC",
+      "division": "South"
+    },
+    {
+      "teamId": "gb",
+      "teamName": "Green Bay Packers",
+      "abbrev": "GB",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+      "winTotalLine": 9.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "NFC",
+      "division": "North"
+    },
+    {
+      "teamId": "dal",
+      "teamName": "Dallas Cowboys",
+      "abbrev": "DAL",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+      "winTotalLine": 9.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "NFC",
+      "division": "East"
+    },
+    {
+      "teamId": "mia",
+      "teamName": "Miami Dolphins",
+      "abbrev": "MIA",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+      "winTotalLine": 9.5,
+      "currentWins": 1,
+      "currentLosses": 3,
+      "conference": "AFC",
+      "division": "East"
+    },
+    {
+      "teamId": "nyj",
+      "teamName": "New York Jets",
+      "abbrev": "NYJ",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+      "winTotalLine": 9.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "AFC",
+      "division": "East"
+    },
+    {
+      "teamId": "lar",
+      "teamName": "Los Angeles Rams",
+      "abbrev": "LAR",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+      "winTotalLine": 8.5,
+      "currentWins": 1,
+      "currentLosses": 3,
+      "conference": "NFC",
+      "division": "West"
+    },
+    {
+      "teamId": "atl",
+      "teamName": "Atlanta Falcons",
+      "abbrev": "ATL",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+      "winTotalLine": 9.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "NFC",
+      "division": "South"
+    },
+    {
+      "teamId": "chi",
+      "teamName": "Chicago Bears",
+      "abbrev": "CHI",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+      "winTotalLine": 8.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "NFC",
+      "division": "North"
+    },
+    {
+      "teamId": "jax",
+      "teamName": "Jacksonville Jaguars",
+      "abbrev": "JAX",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png",
+      "winTotalLine": 8.5,
+      "currentWins": 0,
+      "currentLosses": 4,
+      "conference": "AFC",
+      "division": "South"
+    },
+    {
+      "teamId": "cle",
+      "teamName": "Cleveland Browns",
+      "abbrev": "CLE",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png",
+      "winTotalLine": 8.5,
+      "currentWins": 1,
+      "currentLosses": 3,
+      "conference": "AFC",
+      "division": "North"
+    },
+    {
+      "teamId": "ind",
+      "teamName": "Indianapolis Colts",
+      "abbrev": "IND",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png",
+      "winTotalLine": 8.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "AFC",
+      "division": "South"
+    },
+    {
+      "teamId": "pit",
+      "teamName": "Pittsburgh Steelers",
+      "abbrev": "PIT",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+      "winTotalLine": 8.5,
+      "currentWins": 3,
+      "currentLosses": 1,
+      "conference": "AFC",
+      "division": "North"
+    },
+    {
+      "teamId": "sea",
+      "teamName": "Seattle Seahawks",
+      "abbrev": "SEA",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+      "winTotalLine": 7.5,
+      "currentWins": 3,
+      "currentLosses": 1,
+      "conference": "NFC",
+      "division": "West"
+    },
+    {
+      "teamId": "tb",
+      "teamName": "Tampa Bay Buccaneers",
+      "abbrev": "TB",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+      "winTotalLine": 7.5,
+      "currentWins": 3,
+      "currentLosses": 1,
+      "conference": "NFC",
+      "division": "South"
+    },
+    {
+      "teamId": "lac",
+      "teamName": "Los Angeles Chargers",
+      "abbrev": "LAC",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png",
+      "winTotalLine": 8.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "AFC",
+      "division": "West"
+    },
+    {
+      "teamId": "ari",
+      "teamName": "Arizona Cardinals",
+      "abbrev": "ARI",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png",
+      "winTotalLine": 7.5,
+      "currentWins": 1,
+      "currentLosses": 3,
+      "conference": "NFC",
+      "division": "West"
+    },
+    {
+      "teamId": "no",
+      "teamName": "New Orleans Saints",
+      "abbrev": "NO",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/no.png",
+      "winTotalLine": 7.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "NFC",
+      "division": "South"
+    },
+    {
+      "teamId": "min",
+      "teamName": "Minnesota Vikings",
+      "abbrev": "MIN",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+      "winTotalLine": 7.5,
+      "currentWins": 4,
+      "currentLosses": 0,
+      "conference": "NFC",
+      "division": "North"
+    },
+    {
+      "teamId": "lv",
+      "teamName": "Las Vegas Raiders",
+      "abbrev": "LV",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png",
+      "winTotalLine": 6.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "AFC",
+      "division": "West"
+    },
+    {
+      "teamId": "ten",
+      "teamName": "Tennessee Titans",
+      "abbrev": "TEN",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png",
+      "winTotalLine": 6.5,
+      "currentWins": 1,
+      "currentLosses": 3,
+      "conference": "AFC",
+      "division": "South"
+    },
+    {
+      "teamId": "was",
+      "teamName": "Washington Commanders",
+      "abbrev": "WAS",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/was.png",
+      "winTotalLine": 6.5,
+      "currentWins": 3,
+      "currentLosses": 1,
+      "conference": "NFC",
+      "division": "East"
+    },
+    {
+      "teamId": "nyg",
+      "teamName": "New York Giants",
+      "abbrev": "NYG",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png",
+      "winTotalLine": 6.5,
+      "currentWins": 1,
+      "currentLosses": 3,
+      "conference": "NFC",
+      "division": "East"
+    },
+    {
+      "teamId": "den",
+      "teamName": "Denver Broncos",
+      "abbrev": "DEN",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/den.png",
+      "winTotalLine": 5.5,
+      "currentWins": 2,
+      "currentLosses": 2,
+      "conference": "AFC",
+      "division": "West"
+    },
+    {
+      "teamId": "ne",
+      "teamName": "New England Patriots",
+      "abbrev": "NE",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+      "winTotalLine": 4.5,
+      "currentWins": 1,
+      "currentLosses": 3,
+      "conference": "AFC",
+      "division": "East"
+    },
+    {
+      "teamId": "car",
+      "teamName": "Carolina Panthers",
+      "abbrev": "CAR",
+      "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/car.png",
+      "winTotalLine": 5.5,
+      "currentWins": 1,
+      "currentLosses": 3,
+      "conference": "NFC",
+      "division": "South"
+    }
+  ],
+  "seasonPicks": [
+    {
+      "id": "sp_admin_1",
+      "userId": "usr_admin",
+      "teamId": "kc",
+      "selection": "OVER",
+      "line": 11.5,
+      "isLock": true,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-01T12:00:00Z"
+    },
+    {
+      "id": "sp_admin_2",
+      "userId": "usr_admin",
+      "teamId": "det",
+      "selection": "OVER",
+      "line": 10.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-01T12:00:00Z"
+    },
+    {
+      "id": "sp_admin_3",
+      "userId": "usr_admin",
+      "teamId": "car",
+      "selection": "UNDER",
+      "line": 5.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-01T12:00:00Z"
+    },
+    {
+      "id": "sp_admin_4",
+      "userId": "usr_admin",
+      "teamId": "ne",
+      "selection": "UNDER",
+      "line": 4.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-01T12:00:00Z"
+    },
+    {
+      "id": "sp_admin_5",
+      "userId": "usr_admin",
+      "teamId": "bal",
+      "selection": "OVER",
+      "line": 11.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-01T12:00:00Z"
+    },
+    {
+      "id": "sp_dave_1",
+      "userId": "usr_dave",
+      "teamId": "phi",
+      "selection": "OVER",
+      "line": 10.5,
+      "isLock": true,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-01T14:15:00Z"
+    },
+    {
+      "id": "sp_dave_2",
+      "userId": "usr_dave",
+      "teamId": "gb",
+      "selection": "OVER",
+      "line": 9.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-01T14:15:00Z"
+    },
+    {
+      "id": "sp_dave_3",
+      "userId": "usr_dave",
+      "teamId": "hou",
+      "selection": "OVER",
+      "line": 9.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-01T14:15:00Z"
+    },
+    {
+      "id": "sp_dave_4",
+      "userId": "usr_dave",
+      "teamId": "den",
+      "selection": "UNDER",
+      "line": 5.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-01T14:15:00Z"
+    },
+    {
+      "id": "sp_dave_5",
+      "userId": "usr_dave",
+      "teamId": "nyg",
+      "selection": "UNDER",
+      "line": 6.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-01T14:15:00Z"
+    },
+    {
+      "id": "sp_sarah_1",
+      "userId": "usr_sarah",
+      "teamId": "sf",
+      "selection": "OVER",
+      "line": 11.5,
+      "isLock": true,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-02T09:30:00Z"
+    },
+    {
+      "id": "sp_sarah_2",
+      "userId": "usr_sarah",
+      "teamId": "buf",
+      "selection": "OVER",
+      "line": 10.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-02T09:30:00Z"
+    },
+    {
+      "id": "sp_sarah_3",
+      "userId": "usr_sarah",
+      "teamId": "cin",
+      "selection": "OVER",
+      "line": 10.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-02T09:30:00Z"
+    },
+    {
+      "id": "sp_sarah_4",
+      "userId": "usr_sarah",
+      "teamId": "lv",
+      "selection": "UNDER",
+      "line": 6.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-02T09:30:00Z"
+    },
+    {
+      "id": "sp_sarah_5",
+      "userId": "usr_sarah",
+      "teamId": "ten",
+      "selection": "UNDER",
+      "line": 6.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-02T09:30:00Z"
+    },
+    {
+      "id": "sp_marcus_1",
+      "userId": "usr_marcus",
+      "teamId": "dal",
+      "selection": "OVER",
+      "line": 9.5,
+      "isLock": true,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-02T16:00:00Z"
+    },
+    {
+      "id": "sp_marcus_2",
+      "userId": "usr_marcus",
+      "teamId": "lar",
+      "selection": "OVER",
+      "line": 8.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-02T16:00:00Z"
+    },
+    {
+      "id": "sp_marcus_3",
+      "userId": "usr_marcus",
+      "teamId": "mia",
+      "selection": "OVER",
+      "line": 9.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-02T16:00:00Z"
+    },
+    {
+      "id": "sp_marcus_4",
+      "userId": "usr_marcus",
+      "teamId": "ari",
+      "selection": "UNDER",
+      "line": 7.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-02T16:00:00Z"
+    },
+    {
+      "id": "sp_marcus_5",
+      "userId": "usr_marcus",
+      "teamId": "was",
+      "selection": "UNDER",
+      "line": 6.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-02T16:00:00Z"
+    },
+    {
+      "id": "sp_mike_1",
+      "userId": "usr_mike",
+      "teamId": "chi",
+      "selection": "OVER",
+      "line": 8.5,
+      "isLock": true,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-03T11:00:00Z"
+    },
+    {
+      "id": "sp_mike_2",
+      "userId": "usr_mike",
+      "teamId": "atl",
+      "selection": "OVER",
+      "line": 9.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-03T11:00:00Z"
+    },
+    {
+      "id": "sp_mike_3",
+      "userId": "usr_mike",
+      "teamId": "nyj",
+      "selection": "OVER",
+      "line": 9.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-03T11:00:00Z"
+    },
+    {
+      "id": "sp_mike_4",
+      "userId": "usr_mike",
+      "teamId": "no",
+      "selection": "UNDER",
+      "line": 7.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-03T11:00:00Z"
+    },
+    {
+      "id": "sp_mike_5",
+      "userId": "usr_mike",
+      "teamId": "ind",
+      "selection": "UNDER",
+      "line": 8.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-03T11:00:00Z"
+    },
+    {
+      "id": "sp_chloe_1",
+      "userId": "usr_chloe",
+      "teamId": "kc",
+      "selection": "OVER",
+      "line": 11.5,
+      "isLock": true,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-03T15:45:00Z"
+    },
+    {
+      "id": "sp_chloe_2",
+      "userId": "usr_chloe",
+      "teamId": "phi",
+      "selection": "OVER",
+      "line": 10.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-03T15:45:00Z"
+    },
+    {
+      "id": "sp_chloe_3",
+      "userId": "usr_chloe",
+      "teamId": "det",
+      "selection": "OVER",
+      "line": 10.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-03T15:45:00Z"
+    },
+    {
+      "id": "sp_chloe_4",
+      "userId": "usr_chloe",
+      "teamId": "car",
+      "selection": "UNDER",
+      "line": 5.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-03T15:45:00Z"
+    },
+    {
+      "id": "sp_chloe_5",
+      "userId": "usr_chloe",
+      "teamId": "ne",
+      "selection": "UNDER",
+      "line": 4.5,
+      "isLock": false,
+      "result": "pending",
+      "pointsAwarded": 0,
+      "submittedAt": "2026-09-03T15:45:00Z"
+    }
+  ],
+  "ledger": [
+    {
+      "id": "ledg_1",
+      "userId": "usr_admin",
+      "userName": "Alex Khalil",
+      "type": "BUY_IN",
+      "amount": 25,
+      "description": "$25 Season Buy-in received",
+      "date": "2026-08-15"
+    },
+    {
+      "id": "ledg_2",
+      "userId": "usr_dave",
+      "userName": "Dave Miller",
+      "type": "BUY_IN",
+      "amount": 25,
+      "description": "$25 Season Buy-in received",
+      "date": "2026-08-16"
+    },
+    {
+      "id": "ledg_3",
+      "userId": "usr_sarah",
+      "userName": "Sarah Jenkins",
+      "type": "BUY_IN",
+      "amount": 25,
+      "description": "$25 Season Buy-in received",
+      "date": "2026-08-17"
+    },
+    {
+      "id": "ledg_4",
+      "userId": "usr_marcus",
+      "userName": "Marcus Vance",
+      "type": "BUY_IN",
+      "amount": 25,
+      "description": "$25 Season Buy-in received",
+      "date": "2026-08-17"
+    },
+    {
+      "id": "ledg_5",
+      "userId": "usr_mike",
+      "userName": "Mike Peterson",
+      "type": "BUY_IN",
+      "amount": 25,
+      "description": "$25 Season Buy-in received",
+      "date": "2026-08-18"
+    },
+    {
+      "id": "ledg_6",
+      "userId": "usr_chloe",
+      "userName": "Chloe Rivera",
+      "type": "BUY_IN",
+      "amount": 25,
+      "description": "$25 Season Buy-in received",
+      "date": "2026-08-19"
+    },
+    {
+      "id": "ledg_7",
+      "userId": "usr_dave",
+      "userName": "Dave Miller",
+      "week": 2,
+      "type": "PERFECT_6_0_BONUS",
+      "amount": -5,
+      "description": "\ud83d\udd25 Perfect 6-0 Week 2! +$5 bonus to Dave (deducted from pot)",
+      "date": "2026-09-15"
+    },
+    {
+      "id": "ledg_8",
+      "userId": "usr_mike",
+      "userName": "Mike Peterson",
+      "week": 3,
+      "type": "AWFUL_0_6_PENALTY",
+      "amount": 5,
+      "description": "\ud83d\udc80 Awful 0-6 Week 3 penalty (+$5 added into pot)",
+      "date": "2026-09-22"
+    }
+  ],
+  "pastSeasons": [
+    {
+      "seasonYear": 2025,
+      "champion": {
+        "userId": "usr_admin",
+        "userName": "Alex Khalil",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+        "totalPoints": 34,
+        "record": "58-32 (Lock: 14-4)",
+        "payout": 150
+      },
+      "totalPot": 300,
+      "archivedAt": "2026-02-10T12:00:00.000Z",
+      "standings": [
+        {
+          "rank": 1,
+          "userId": "usr_admin",
+          "user": {
+            "id": "usr_admin",
+            "name": "Alex Khalil",
+            "email": "khalil.alex@icloud.com",
+            "role": "admin",
+            "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+            "blazingWeekUsed": null,
+            "buyInPaid": true,
+            "createdAt": "2026-08-15T00:00:00.000Z"
+          },
+          "totalPoints": 34,
+          "wins": 58,
+          "losses": 32,
+          "pushes": 0,
+          "winPct": ".644",
+          "lockWins": 14,
+          "lockLosses": 4,
+          "lockPushes": 0,
+          "lockRecordDisplay": "14-4 (78%)",
+          "blazingWeek": 12,
+          "seasonOUPicksCount": 5,
+          "perfectWeeksCount": 2,
+          "awfulWeeksCount": 0,
+          "netBonusPenalty": 10,
+          "projectedPayout": 150
+        },
+        {
+          "rank": 2,
+          "userId": "usr_dave",
+          "user": {
+            "id": "usr_dave",
+            "name": "Dave Miller",
+            "email": "dave.miller@example.com",
+            "role": "player",
+            "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+            "blazingWeekUsed": 3,
+            "buyInPaid": true,
+            "createdAt": "2026-08-16T00:00:00.000Z"
+          },
+          "totalPoints": 28,
+          "wins": 52,
+          "losses": 38,
+          "pushes": 0,
+          "winPct": ".578",
+          "lockWins": 12,
+          "lockLosses": 6,
+          "lockPushes": 0,
+          "lockRecordDisplay": "12-6 (67%)",
+          "blazingWeek": 7,
+          "seasonOUPicksCount": 5,
+          "perfectWeeksCount": 1,
+          "awfulWeeksCount": 0,
+          "netBonusPenalty": 5,
+          "projectedPayout": 75
+        },
+        {
+          "rank": 3,
+          "userId": "usr_sarah",
+          "user": {
+            "id": "usr_sarah",
+            "name": "Sarah Jenkins",
+            "email": "sarah.j@example.com",
+            "role": "player",
+            "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+            "blazingWeekUsed": null,
+            "buyInPaid": true,
+            "createdAt": "2026-08-17T00:00:00.000Z"
+          },
+          "totalPoints": 22,
+          "wins": 48,
+          "losses": 42,
+          "pushes": 0,
+          "winPct": ".533",
+          "lockWins": 10,
+          "lockLosses": 8,
+          "lockPushes": 0,
+          "lockRecordDisplay": "10-8 (56%)",
+          "blazingWeek": 14,
+          "seasonOUPicksCount": 5,
+          "perfectWeeksCount": 0,
+          "awfulWeeksCount": 0,
+          "netBonusPenalty": 0,
+          "projectedPayout": 38
+        },
+        {
+          "rank": 4,
+          "userId": "usr_marcus",
+          "user": {
+            "id": "usr_marcus",
+            "name": "Marcus Vance",
+            "email": "mvance@example.com",
+            "role": "player",
+            "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+            "blazingWeekUsed": null,
+            "buyInPaid": true,
+            "createdAt": "2026-08-17T00:00:00.000Z"
+          },
+          "totalPoints": 16,
+          "wins": 45,
+          "losses": 45,
+          "pushes": 0,
+          "winPct": ".500",
+          "lockWins": 9,
+          "lockLosses": 9,
+          "lockPushes": 0,
+          "lockRecordDisplay": "9-9 (50%)",
+          "blazingWeek": 9,
+          "seasonOUPicksCount": 5,
+          "perfectWeeksCount": 0,
+          "awfulWeeksCount": 1,
+          "netBonusPenalty": -5,
+          "projectedPayout": 23
+        },
+        {
+          "rank": 5,
+          "userId": "usr_mike",
+          "user": {
+            "id": "usr_mike",
+            "name": "Mike Peterson",
+            "email": "mikep@example.com",
+            "role": "player",
+            "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150&auto=format&fit=crop&q=80",
+            "blazingWeekUsed": 4,
+            "buyInPaid": false,
+            "createdAt": "2026-08-18T00:00:00.000Z"
+          },
+          "totalPoints": 10,
+          "wins": 41,
+          "losses": 49,
+          "pushes": 0,
+          "winPct": ".456",
+          "lockWins": 7,
+          "lockLosses": 11,
+          "lockPushes": 0,
+          "lockRecordDisplay": "7-11 (39%)",
+          "blazingWeek": 18,
+          "seasonOUPicksCount": 5,
+          "perfectWeeksCount": 0,
+          "awfulWeeksCount": 2,
+          "netBonusPenalty": -10,
+          "projectedPayout": 14
+        }
+      ]
+    },
+    {
+      "seasonYear": 2024,
+      "champion": {
+        "userId": "usr_dave",
+        "userName": "Dave Miller",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+        "totalPoints": 31,
+        "record": "55-35 (Lock: 13-5)",
+        "payout": 138
+      },
+      "totalPot": 275,
+      "archivedAt": "2025-02-11T12:00:00.000Z",
+      "standings": [
+        {
+          "rank": 1,
+          "userId": "usr_dave",
+          "user": {
+            "id": "usr_dave",
+            "name": "Dave Miller",
+            "email": "dave.miller@example.com",
+            "role": "player",
+            "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+            "blazingWeekUsed": 3,
+            "buyInPaid": true,
+            "createdAt": "2026-08-16T00:00:00.000Z"
+          },
+          "totalPoints": 31,
+          "wins": 55,
+          "losses": 35,
+          "pushes": 0,
+          "winPct": ".611",
+          "lockWins": 13,
+          "lockLosses": 5,
+          "lockPushes": 0,
+          "lockRecordDisplay": "13-5 (72%)",
+          "blazingWeek": 8,
+          "seasonOUPicksCount": 5,
+          "perfectWeeksCount": 1,
+          "awfulWeeksCount": 0,
+          "netBonusPenalty": 5,
+          "projectedPayout": 138
+        },
+        {
+          "rank": 2,
+          "userId": "usr_admin",
+          "user": {
+            "id": "usr_admin",
+            "name": "Alex Khalil",
+            "email": "khalil.alex@icloud.com",
+            "role": "admin",
+            "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+            "blazingWeekUsed": null,
+            "buyInPaid": true,
+            "createdAt": "2026-08-15T00:00:00.000Z"
+          },
+          "totalPoints": 26,
+          "wins": 51,
+          "losses": 39,
+          "pushes": 0,
+          "winPct": ".567",
+          "lockWins": 11,
+          "lockLosses": 7,
+          "lockPushes": 0,
+          "lockRecordDisplay": "11-7 (61%)",
+          "blazingWeek": 10,
+          "seasonOUPicksCount": 5,
+          "perfectWeeksCount": 0,
+          "awfulWeeksCount": 0,
+          "netBonusPenalty": 0,
+          "projectedPayout": 69
+        }
+      ]
+    }
+  ]
+}
